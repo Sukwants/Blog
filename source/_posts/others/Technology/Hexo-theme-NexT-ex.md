@@ -1,5 +1,5 @@
 ---
-title: Hexo 主题 NexT 扩展版备忘录
+title: Hexo 主题 NexT 魔改版备忘录
 category:
   - others
   - Computer
