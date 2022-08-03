@@ -171,7 +171,7 @@ social:
   WeChat: /images/wechat.png || fab fa-weixin
   Zhihu: https://www.zhihu.com/people/0owei-ni-bian-pi-o0 || fab fa-zhihusingle
   Luogu: https://www.luogu.com.cn/user/193684 || fab fa-luogu
-  CodeForces: https://codeforces.com/profile/Song_Gch || fab fa-codeforces
+  Codeforces: https://codeforces.com/profile/Song_Gch || fab fa-codeforces
   Bilibili: https://space.bilibili.com/1382869983?spm_id_from=333.1007.0.0 || fab fa-bilibili
   LibreOJ: https://loj.ac/u/SongGuancheng || fab fa-libreoj
 
@@ -837,7 +837,7 @@ tabs:
 # So, you have to install the dependency of pdf.js if you want to use pdf tag and make it available to all browsers.
 # Dependencies: https://github.com/next-theme/theme-next-pdf
 pdf:
-  enable: false
+  enable: true
   # Default height
   height: 500px
 
