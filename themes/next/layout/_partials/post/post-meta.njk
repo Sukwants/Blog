@@ -2,6 +2,17 @@
   {%- set date_diff = date(post.date) != date(post.updated) %}
   {%- set time_diff = time(post.date) != time(post.updated) %}
 
+  {%- if theme.post_meta.sticky.enable and ( post.sticky > 0 ) %}
+    <span class="post meta-item">
+      <font color="{{ theme.post_meta.sticky.color }}">
+        <span class="post-meta-item-icon">
+          <i class="fa fa-thumbtack"></i>
+        </span>
+        <span class="post-meta-item-text">{{ __('post.sticky') }}</span>
+      </font>
+    </span>
+  {%- endif %}
+
   {%- if theme.post_meta.created_at %}
     <span class="post-meta-item">
       <span class="post-meta-item-icon">

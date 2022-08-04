@@ -43,6 +43,11 @@ footer:
   powered: "由 %s 强力驱动"
   total_views: 总访问量
   total_visitors: 总访客量
+  safely_running: 本站已经安全运行
+  days: 天
+  hours: 小时
+  minutes: 分
+  seconds: 秒
 counter:
   tag_cloud:
     zero: 暂无标签
