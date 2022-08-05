@@ -711,7 +711,7 @@ cloudflare_analytics:
 
 # Microsoft Clarity Analytics
 # See: https://clarity.microsoft.com/
-clarity_analytics: # <project_id>
+clarity_analytics: d2p2fosm33 # <project_id>
 
 # Show number of visitors of each article.
 # You can visit https://www.leancloud.cn to get AppID and AppKey.
