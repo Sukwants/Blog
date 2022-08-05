@@ -3,12 +3,11 @@ title: Hexo 主题 NexT 魔改备忘录
 category:
   - others
   - Computer
-unshow: true
 categories:
   - others
   - Technology
 date: 2022-05-06 14:44:38
-updated: 2022-07-31 19:41:13
+updated: 2022-08-05 21:44:54
 tags:
 ---
 
@@ -16,6 +15,20 @@ tags:
 创造吧，向着未知世界！
 
 <!--more-->
+
+## 依稀记得，来时的路
+
+2022/08/05 首次编写插件并发布到 npm 上。
+
+2022/04/23 首次修改模板文件。
+
+2022/02/14 首次使用 `styles.styl`。
+
+2022/02/11 首次搭建 Hexo + NexT 博客网站。
+
+## 插件
+
+[hexo-related-posts-bysk](https://github.com/Sukwants/hexo-related-posts-bysk) 一个为 Hexo 设计的插件，用来生成相关文章，作者是 Sukwants。
 
 ## Front-matter
 
@@ -80,11 +93,15 @@ read_more_btn:
 ```
 
 ```yml
-# List related posts 相关文章，使用插件 hexo-next-list-related-posts
+# List related posts, written by Sukwants 相关文章，使用插件 hexo-related-posts-bysk
 related_posts:
   enable: true # 开启功能
   title: # 设置标题，默认为「相关文章」
   display_in_home: false # 决定是否在主页开启此功能
+  max_count: 5 # 最大文章数
+  order_by: 'date' # 排序依据
+  #order: 'positive' # 升序
+  order: 'negative'  # 降序
 ```
 
 ```yml
@@ -179,7 +196,7 @@ footer:
 替换为了
 
 ```njk
-{% set related_post =  list_related_posts(post, {maxCount: 10, orderBy: 'date'}) %}
+{% set related_post =  related_posts_bysk(post, {maxCount: theme.related_posts.max_count, orderBy: theme.related_posts.order_by, order: theme.related_posts.order}) %}
 {% if related_post.length > 0 %}
   <div class="popular-posts-header">{{ theme.related_posts.title or __('post.related_posts') }}</div>
   <ul class="related-posts">
