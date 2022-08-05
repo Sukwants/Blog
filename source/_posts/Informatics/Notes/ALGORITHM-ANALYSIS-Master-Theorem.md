@@ -2,6 +2,7 @@
 title: 算法分析 - 主定理
 tags:
   - '[I] 算法分析'
+  - '[I] 分治法'
 categories:
   - Informatics
   - Notes

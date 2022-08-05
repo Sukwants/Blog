@@ -2,6 +2,7 @@
 title: 动态规划 - 树形动态规划
 tags:
   - '[I] 动态规划'
+  - '[I] 树'
 categories:
   - Informatics
   - Notes

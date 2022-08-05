@@ -305,12 +305,16 @@ follow_me:
   #WeChat: /images/wechat_channel.jpg || fab fa-weixin
   #RSS: /atom.xml || fa fa-rss
 
-# List related posts
-# Dependencies: https://github.com/jixiaod/hexo-next-list-related-posts
+# List related posts, written by Sukwants
+# Dependencies: https://github.com/Sukwants/hexo-related-posts-bysk
 related_posts:
   enable: true
   title: # Custom header, leave empty to use the default one
   display_in_home: false
+  max_count: 5
+  order_by: 'date'
+  #order: 'positive'
+  order: 'negative'
 
 # Post edit
 # Easily browse and edit blog source code online.

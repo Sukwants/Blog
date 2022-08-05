@@ -2,6 +2,7 @@
 title: 基础算法 - 分治法
 tags:
   - '[I] 基础算法'
+  - '[I] 分治法'
 categories:
   - Informatics
   - Notes
