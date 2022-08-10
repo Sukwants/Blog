@@ -9,7 +9,7 @@ date: 2022-07-21 17:01:00
 ---
 
 
-$\Theta,\mathrm{0},\Omega$ 的宴会
+$\Theta,\mathrm{O},\Omega$ 一场盛宴
 
 <!--more-->
 

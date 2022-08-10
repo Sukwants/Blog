@@ -1,4 +1,4 @@
-{% set related_post =  related_posts_bysk(post, {maxCount: theme.related_posts.max_count, orderBy: theme.related_posts.order_by, order: theme.related_posts.order}) %}
+{% set related_post =  related_posts_bysk(post, {maxCount: theme.related_posts.max_count, orderBy: theme.related_posts.order_by, order: theme.related_posts.order, excludeTags: theme.related_posts.exclude.tags, excludeCategories: theme.related_posts.exclude.categories}) %}
 {% if related_post.length > 0 %}
   <div class="popular-posts-header">{{ theme.related_posts.title or __('post.related_posts') }}</div>
   <ul class="related-posts">

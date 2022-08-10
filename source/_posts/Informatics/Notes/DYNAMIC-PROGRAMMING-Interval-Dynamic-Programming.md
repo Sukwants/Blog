@@ -236,7 +236,7 @@ int main()
 $$
 \\begin{align}
   & \\text{SOVLE-POSSIBLE-SCENARIOS}(A)\\\\
-  & \\begin{array}{ll}
+  & \\begin{array}{rl}
       1 &  \\textbf{for } d=2 \\textbf{ to } n \\\\
       2 &  \\qquad \\textbf{for } i=1 \\textbf{ to } n-d+1 \\\\
       3 &  \\qquad \\qquad j=i+d-1 \\\\

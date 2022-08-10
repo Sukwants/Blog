@@ -39,7 +39,7 @@ date: 2022-07-31 10:29:57
 $$
 \\begin{align}
   & \\text{BINARY-SEARCH}(l,r,x)\\\\
-  & \\begin{array}{ll}
+  & \\begin{array}{rl}
       1 &  \\mathit{mid}=\\left\\lfloor\\frac{l+r}{2}\\right\\rfloor \\\\
       2 &  \\textbf{if } A[\\mathit{mid}\\,]==x \\\\
       3 &  \\qquad \\textbf{return } mid \\\\
@@ -74,7 +74,7 @@ $$
 $$
 \\begin{align}
   & \\text{QUICK-SORT}(l,r)\\\\
-  & \\begin{array}{ll}
+  & \\begin{array}{rl}
       1  &  \\textbf{if } l \\geq r\\\\
       2  &  \\qquad \\textbf{return void}()\\\\
       3  &  \\mathit{mid}=A[\\text{RANDOM}(l,r)]\\\\
@@ -106,7 +106,7 @@ C++ 的 ``<algorithm>`` 库中包含实现了快速排序的函数 ``sort(type *
 $$
 \\begin{align}
   & \\text{MERGE}(l,\\mathit{mid},r)\\\\
-  & \\begin{array}{ll}
+  & \\begin{array}{rl}
       1  &  i=l \\\\
       2  &  j=\\mathit{mid}+1 \\\\
       3  &  \\textbf{while } i \\leq mid \\textbf{ and } j \\leq r \\\\
@@ -123,7 +123,7 @@ $$
       14 &  A[l...r]=B[l...r]
      \\end{array}\\\\\\\\
   & \\text{MERGE-SORT}(l,r)\\\\
-  & \\begin{array}{ll}
+  & \\begin{array}{rl}
       1 &  \\textbf{if } l==r \\\\
       2 &  \\qquad \\textbf{return void}() \\\\
       3 &  \\mathit{mid}=\\left\\lfloor\\frac{l+r}{2}\\right\\rfloor \\\\

@@ -315,6 +315,10 @@ related_posts:
   order_by: 'date'
   #order: 'positive'
   order: 'negative'
+  exclude:
+    tags:
+    categories:
+      - 'others'
 
 # Post edit
 # Easily browse and edit blog source code online.

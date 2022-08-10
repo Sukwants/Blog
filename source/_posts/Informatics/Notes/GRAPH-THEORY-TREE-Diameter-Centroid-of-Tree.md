@@ -135,7 +135,7 @@ $$
 $$
 \\begin{align}
   & \\text{FIND-CENTROID}(x) \\\\
-  & \\begin{array}{ll}
+  & \\begin{array}{rl}
       1 &  \\mathit{Max} = 0 \\\\
       2 &  \\mathit{sz}_x = 1 \\\\
       3 &  \\textbf{for } i \\in S_x \\\\

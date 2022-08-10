@@ -41,7 +41,5 @@ for $inject_mixin in hexo-config('injects.mixin')
 
 // Custom Layer
 // --------------------------------------------------
-// for $inject_style in hexo-config('injects.style')
-//   @import $inject_style;
-
-@import "../_data/styles.styl";
+for $inject_style in hexo-config('injects.style')
+  @import $inject_style;
