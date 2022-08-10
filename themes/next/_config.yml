@@ -317,6 +317,7 @@ related_posts:
   order: 'negative'
   exclude:
     tags:
+      #- 'some tags'
     categories:
       - 'others'
 
