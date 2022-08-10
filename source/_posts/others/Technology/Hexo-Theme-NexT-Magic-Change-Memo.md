@@ -7,7 +7,7 @@ categories:
   - others
   - Technology
 date: 2022-05-06 14:44:38
-updated: 2022-08-05 21:44:54
+updated: 2022-08-10 19:22:54
 tags:
 ---
 
@@ -28,7 +28,13 @@ tags:
 
 ## 插件
 
-[hexo-related-posts-bysk](https://github.com/Sukwants/hexo-related-posts-bysk) 一个为 Hexo 设计的插件，用来生成相关文章，作者是 Sukwants。
+### [hexo-related-posts-bysk](https://github.com/Sukwants/hexo-related-posts-bysk)
+
+一个为 Hexo 设计的插件，用来生成相关文章，作者是 Sukwants。
+
+2022-08-10 发布 v1.1.0，增加了指定标签和分类不参与文章相关性计算的功能。如要从 v1.0.0 更新，需修改 `themes/next/layout/_partials/post/post-related.njk` 和 `themes/next/_config.yml`。
+
+2022-08-05 发布 v1.0.0，基于各种 Hexo 相关文章插件并再加修改制作，通过标签和分类生成相关文章，支持设置标题和最大显示数目。
 
 ## Front-matter
 
@@ -102,6 +108,11 @@ related_posts:
   order_by: 'date' # 排序依据
   #order: 'positive' # 升序
   order: 'negative'  # 降序
+  exclude: # 不计入文章相关性计算的标签或分类
+    tags:
+      #- 'some tags'
+    categories:
+      - 'others'
 ```
 
 ```yml
@@ -196,7 +207,7 @@ footer:
 替换为了
 
 ```njk
-{% set related_post =  related_posts_bysk(post, {maxCount: theme.related_posts.max_count, orderBy: theme.related_posts.order_by, order: theme.related_posts.order}) %}
+{% set related_post =  related_posts_bysk(post, {maxCount: theme.related_posts.max_count, orderBy: theme.related_posts.order_by, order: theme.related_posts.order, excludeTags: theme.related_posts.exclude.tags, excludeCategories: theme.related_posts.exclude.categories}) %}
 {% if related_post.length > 0 %}
   <div class="popular-posts-header">{{ theme.related_posts.title or __('post.related_posts') }}</div>
   <ul class="related-posts">
