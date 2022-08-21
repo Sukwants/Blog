@@ -15,7 +15,7 @@ date: 2022-04-04 13:11:03
 
 ## 从递归递推到动态规划
 
-### T1 菲波那契数列
+### T 菲波那契数列
 
 评测链接：<http://ybt.ssoier.cn:8088/problem_show.php?pid=1201>
 
@@ -56,7 +56,7 @@ int main()
 
 在下面这道题目中，我们可以看出上面这段代码有着不可避免的缺陷。
 
-### T2 菲波那契数列 (2)
+### T 菲波那契数列 (2)
 
 评测链接：<http://ybt.ssoier.cn:8088/problem_show.php?pid=1188>
 
@@ -140,7 +140,7 @@ int main()
 
 ## 数字三角形模型
 
-### T3 数字三角形
+### T 数字三角形
 
 评测链接：<https://www.acwing.com/problem/content/900/>
 
@@ -191,7 +191,7 @@ int main()
 }
 ```
 
-### T4 摘花生
+### T 摘花生
 
 评测链接：<https://www.acwing.com/problem/content/1017/>
 
@@ -247,7 +247,7 @@ int main()
 }
 ```
 
-### T5 最低通行费
+### T 最低通行费
 
 评测链接：<https://www.acwing.com/problem/content/1020/>
 
@@ -275,7 +275,7 @@ int main()
 
 略去代码。
 
-### T6 方格取数
+### T 方格取数
 
 评测链接：<http://ybt.ssoier.cn:8088/problem_show.php?pid=1287>
 
@@ -362,7 +362,7 @@ int main()
 
 背包问题一般有 0/1 背包、完全背包、多重背包、二维费用的背包问题等。
 
-### T7 0/1 背包问题
+### T 0/1 背包问题
 
 测评链接：<https://www.acwing.com/problem/content/2/>
 
@@ -404,7 +404,7 @@ int main()
 }
 ```
 
-### T8 完全背包问题
+### T 完全背包问题
 
 测评链接：<https://www.acwing.com/problem/content/3/>
 
@@ -446,7 +446,7 @@ int main()
 }
 ```
 
-### T9 多重背包问题
+### T 多重背包问题
 
 有 $N$ 种物品和一个容量是 $V$ 的背包。第 $i$ 种物品最多有 $s_i$ 件，每件体积是 $v_i$ ，价值是 $w_i$ 。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。
 
@@ -522,7 +522,7 @@ $r_i$ 是根据具体拆分的余数。
 
 见[动态规划 - 单调队列优化](/Informatics/Notes/DYNAMIC-PROGRAMMING-Monotonic-Queue-Optimization/)。
 
-### T10 二维费用的背包问题
+### T 二维费用的背包问题
 
 测评链接：<https://www.acwing.com/problem/content/8/>
 

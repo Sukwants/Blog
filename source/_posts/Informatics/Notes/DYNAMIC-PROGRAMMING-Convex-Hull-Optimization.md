@@ -104,7 +104,7 @@ $k_{CD}=\frac{y_D-y_C}{x_D-x_C}>\frac{(kx_D+b)-(kx_C+b)}{x_D-x_C}=\frac{k(x_D-kx
 
 这里，不需要数形结合找解法的时候，我们可以进一步将平面上撒的点看成是若干个二元组 $(x,y)$，要求 $y-kx$ 的最小值，这或许会更契合动态规划的决策。
 
-## T1 玩具装箱
+## T 玩具装箱
 
 题目来源：HNOI2008
 评测链接：<https://www.luogu.com.cn/problem/P3195>

@@ -18,7 +18,7 @@ date: 2022-06-17 15:09:15
 
 在区间动态规划一节中看了这么多冒充树形 DP 的 **Y 货**，是时候该见证一下真正的树形动态规划了。我们先从一道简单题开始（洛谷难度评级 <font style="color:green">普及+/提高</font> ）。
 
-## T1 二叉苹果树
+## T 二叉苹果树
 
 评测链接：<https://www.luogu.com.cn/problem/P2015>
 
@@ -117,7 +117,7 @@ int main()
 }
 ```
 
-## T2 有依赖的背包问题
+## T 有依赖的背包问题
 
 评测链接：<https://www.acwing.com/problem/content/10/>
 
@@ -218,7 +218,7 @@ int main()
 
 由此可见，这样的树形 DP 问题并不是一般形式上的子问题递归，而通常需要指定根进行 DP 后根据 DP 结果再做处理（一般是树上统计）。如下题。
 
-### T3 积蓄程度
+### T 积蓄程度
 
 评测链接：<https://www.acwing.com/problem/content/289/>
 

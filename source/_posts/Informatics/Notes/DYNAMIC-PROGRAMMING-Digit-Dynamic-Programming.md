@@ -41,7 +41,7 @@ date: 2022-07-12 21:30:24
 
   2. 一般对于区间 $[a,b]$ 的问题，会将它转换为 $[1,b]$ 和 $[1,a-1]$ 两个问题之差，只考虑上界，方便统计。
 
-## T1 数字计数
+## T 数字计数
 
 题目来源：ZJOI2010
 评测链接：<https://www.luogu.com.cn/problem/P2602>
@@ -134,7 +134,7 @@ int main()
 }
 ```
 
-## T2 windy 数
+## T windy 数
 
 题目来源：SCOI2009
 评测链接：<https://www.luogu.com.cn/problem/P2657>)

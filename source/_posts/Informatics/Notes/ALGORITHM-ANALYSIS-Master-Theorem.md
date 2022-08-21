@@ -29,14 +29,17 @@ $$
 那么
 
 $$
-T(n) = \\begin{cases}\\Theta(n^{\\log_b a}) & f(n) = \\mathrm{O}(n^{\\log_b a-\\epsilon})\\\\
+\\begin{align}
+& T(n) = \\begin{cases}\\Theta(n^{\\log_b a}) & f(n) = \\mathrm{O}(n^{\\log_b a-\\epsilon})\\\\
 \\Theta(n^{\\log_b a}\\log^{k+1} n) & f(n)=\\Theta(n^{\\log_b a}\\log^k n),k\\ge 0\\\\
-\\Theta(f(n)) & f(n) = \\Omega(n^{\\log_b a+\\epsilon})\\end{cases}
+\\Theta(f(n)) & f(n) = \\Omega(n^{\\log_b a+\\epsilon})\\land p\\end{cases}\\\\
+& p:\\exists 0<c<1,n_0>0,\\forall n\\geq n_0,af(\\frac{n}{b})\\leq cf(n)
+\\end{align}
 $$
 
-对于第三种情况，还需满足条件，对于一个常数 $c<1$ 和所有足够大的 $n$，有 $af(\frac{n}{b})\leq cf(n)$，也就是 $af(\frac{n}{b})<f(n)$，这里大概是为了方便证明。
+条件 $p$ 的含义是，对于某个常数 $c<0$ 和所有足够大的 $n$ 有 $af(\frac{n}{b})\leq cf(n)$。
 
-对于第一种和第三种情况，$\epsilon>0$ 是一个常数。
+$\epsilon>0$ 是一个常数。
 
 ## 证明
 
@@ -204,13 +207,95 @@ $$
 
 ## 理解
 
-对于第 1 种情况，其实就是 $T(n)=\Theta(n^{\log_ba})+\sum\limits_{i=0}^{\log_bn-1}a^if(\frac{n}{b^i})$ 中两部分哪部分在渐进意义上更大的问题，这种情况反映的是叶结点的计算更大，所以时间复杂度由叶结点的计算决定。
+这 3 种情况，其实就是 $T(n)=\Theta(n^{\log_ba})+\sum\limits_{i=0}^{\log_bn-1}a^if(\frac{n}{b^i})$ 中两部分，哪部分更大的问题。
 
-对于第 3 种情况，条件 $\exists 0<c<1,n_0>0,\forall n\geq n_0,af(\frac{n}{b})\leq cf(n)$ 反映的是 $T(n)=aT(\frac{n}{b})+f(n)$ 中当前层合并代价高于下一层合并代价，条件 $f(n) = \Omega(n^{\log_b a+\epsilon})$ 反映的是 $T(n)=\Theta(n^{\log_ba})+\sum\limits_{i=0}^{\log_bn-1}a^if(\frac{n}{b^i})$ 合并的代价高于叶结点计算的代价。两者同时满足，决定时间复杂度的就是第 $0$ 层的合并代价。
+对于第 1 种情况，因为 $f(n)=\mathrm{O}(n^{\log_ba-\epsilon})$，所以
 
-对于第 2 种情况，反映的是在特殊条件下对性质的进一步发掘。
+$$
+af(\frac{n}{b})=a\left[(\frac{n}{b})^{\log_ba-\epsilon}\right]=a\left[\frac{n^{\log_ba-\epsilon}b^\epsilon}{a}\right]=n^{\log_ba-\epsilon}b^\epsilon<n^{\log_ba}=f(n)
+$$
+
+（以上等于、小于均为渐进意义，下同）
+
+也就是下一层的合并代价比这一层的要小，同时我们发现第一层的合并代价也比最后一层的计算代价要小，那么总的 $T(n)$ 就由第一层的合并代价和最后一层的计算代价决定，也就是
+
+$$
+T(n)=\mathrm{O}(n^{\log_ba-\epsilon})+n^{\log_ba}\Theta(1)=\Theta(\log_ba)
+$$
+
+对于第 2 种情况，因为 $f(n)=\Theta(n^{\log_ba}\log^kn)$，所以
+
+$$
+af(\frac{n}{b})=a\left[(\frac{n}{b})^{\log_ba}\log^k\frac{n}{b}\right]=a\left[\frac{n^{\log_ba}}{a}(\log n-\log b)^k\right]=n^{\log_ba}\log^kn=f(n)
+$$
+
+也就是每一层的合并代价相等，那么总的
+
+$$
+T(n)=\log_bnf(n)+n^{\log_ba}\Theta(1)=\Theta(n^{\log_ba}\log^{k+1}n)+\Theta(n^{\log_ba})=\Theta(n^{\log_ba}\log^{k+1}n)
+$$
+
+对于第 3 种情况，因为 $f(n) = \Omega(n^{\log_b a+\epsilon})$ 和 $p:\exists 0<c<1,n_0>0,\forall n\geq n_0,af(\frac{n}{b})\leq cf(n)$，所以合并代价大于最后一层的计算代价，并且总的合并代价与第一层的合并代价同级，因此 $T(n)=\Theta(f(n))$。
+
+简要证明已经写在证明部分。
 
 伟大的 Master Theorem，就这么被我们干完了。
+
+## 例题
+
+  > NOIP 初赛的主定理题目就是授人以鱼，考人以鱽鱾鲀鱿鲃鲂鲉鲌鲄鲆鲅鲇鲏鲊鲋鲐鲈鲍鲎鲝鲘鲙鲗鲓鲖鲞鲛鲒鲚鲜鲟鲔鲕鲑鲧鲬鲪鲫鲩鲣鲨鲡鲢鲤鲠鲥鲦鲺鲯鲹鲴鲶鲳鲮鲭鲵鲲鲰鲱鲻鲷鲸鳋鳊鳁鳀鲾鲼鳈鳉鳃鳄鲿鳇鳂鳆鳅鲽鳌鳒鳎鳏鳑鳐鳍鳘鳛鳕鳓鳙鳗鳚鳔鳖鳜鳟鳞鳝鳡鳠鳢鳣鳤。
+
+### P [NOIP2016 提高组初赛] 14.
+
+假设某算法的计算时间表示为递推关系式
+
+$T(n)=2T(\dfrac{n}{4})+\sqrt{n}$
+$T(1)=1$
+
+则算法的时间复杂度为（ ）。
+
+<div style="width:25%; margin:0 0 0 0; float: left">
+<center>A. $O(n)\qquad$</center>
+</div>
+<div style="width:25%; margin:0 0 0 0; float: left">
+<center>B. $O(\sqrt{n})\qquad$</center>
+</div>
+<div style="width:25%; margin:0 0 0 0; float: left">
+<center>C. $O(\sqrt{n}\log n)\qquad$</center>
+</div>
+<div style="width:25%; margin:0 0 0 0; float: left">
+<center>D. $O(n^2)$</center>
+</div>
+
+<br>
+
+这里我们已知 $a=2,b=4$，$f(n)={\sqrt{n}}$，得到 $f(n)=\Theta({\sqrt{n}})=\Theta(n^\frac{1}{2})=\Theta(n^{\log_ba})$，因此 $T(n)=\Theta(n^{\log_ba}\log n)=\mathrm{O}(\sqrt{n}\log n)$。
+
+### P [NOIP2017 提高组初赛] 6.
+
+若某算法的计算时间表示为递推关系式：
+
+$T(N) = 2T(\dfrac{N}{2}) + N \log N$
+$T(1) = 1$
+
+则该算法的时间复杂度为（ ）。
+
+<div style="width:25%; margin:0 0 0 0; float: left">
+<center>A. $O(N)$</center>
+</div>
+<div style="width:25%; margin:0 0 0 0; float: left">
+<center>B. $O(N \log N)$</center>
+</div>
+<div style="width:25%; margin:0 0 0 0; float: left">
+<center>C. $O(N \log^2 N)$</center>
+</div>
+<div style="width:25%; margin:0 0 0 0; float: left">
+<center>D. $O(N^2)$</center>
+</div>
+
+<br>
+
+这里我们有 $a=2,b=2,f(N)=N\log N$，所以有 $f(N)=\Theta(N\log N)=\Theta(N^{\log_ba}\log N)$，因此 $T(N)=\Theta(N^{\log_ba}\log^2N)=\Theta(N\log^2N)$。
 
 ## 总结
 
