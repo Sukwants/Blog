@@ -106,7 +106,7 @@ $k_{CD}=\frac{y_D-y_C}{x_D-x_C}>\frac{(kx_D+b)-(kx_C+b)}{x_D-x_C}=\frac{k(x_D-kx
 
 ## T 玩具装箱
 
-题目来源：HNOI2008
+题目来源：HNOI 2008
 评测链接：<https://www.luogu.com.cn/problem/P3195>
 
 P 教授有编号为 $1 \cdots n$ 的 $n$ 件玩具，第 $i$ 件玩具的长度为 $C_i$，要装到若干个容器里。

@@ -43,7 +43,7 @@ date: 2022-07-12 21:30:24
 
 ## T 数字计数
 
-题目来源：ZJOI2010
+题目来源：ZJOI 2010
 评测链接：<https://www.luogu.com.cn/problem/P2602>
 
 给定两个正整数 $a$ 和 $b$，求在 $[a,b]$ 中的所有整数中，每个数码(digit)各出现了多少次。$1 \le a,b \le 10^{12}$。
@@ -136,7 +136,7 @@ int main()
 
 ## T windy 数
 
-题目来源：SCOI2009
+题目来源：SCOI 2009
 评测链接：<https://www.luogu.com.cn/problem/P2657>)
 
 不含前导零且相邻两个数字之差至少为 $2$ 的正整数被称为 windy 数。windy 想知道，在 $a$ 和 $b$ 之间，包括 $a$ 和 $b$ ，总共有多少个 windy 数？$1 \leq a \leq b \leq 2 \times 10^9$。

@@ -7,7 +7,7 @@ categories:
   - Informatics
   - Notes
 date: 2022-08-21 21:33:03
-unshow: true
+updated: 2022-10-10 22:42:12
 ---
 
 
@@ -45,40 +45,11 @@ unshow: true
 
 时间复杂度为 $O(\sqrt{n})$。
 
-```cpp
-#include <cstdio>
+### Miller-Rabin 素性测试
 
-bool isprime(int x)
-{
-    if (x < 2) return false;
-    for (int i = 2; i * i <= x; ++i)
-    {
-        if (x % i == 0) return false;
-    }
-    return true;
-}
+Miller-Rabin 是一种随机性算法，有较小的概率将合数误判为质数，因此我们多次判定，合起来错误概率趋近于零。
 
-int n, a;
-
-int main()
-{
-    scanf("%d", &n);
-
-    for (int i = 1; i <= n; ++i)
-    {
-        scanf("%d", &a);
-        if (isprime(a)) printf("%d ", a);
-    }
-
-    return 0;
-} 
-```
-
-### Miller-Robbin 算法
-
-Miller-Robbin 是一种随机性算法，有较小的概率将合数误判为质数，因此我们多次判定，合起来错误概率趋近于零。
-
-Miller-Robbin 基于费马小定理。费马小定理是这样描述的，若 $p$ 为质数且 $p\nmid a$，那么有
+Miller-Rabin 基于费马素性测试和二次探测素性测试。首先，费马小定理是这样描述的，若 $p$ 为质数且 $p\nmid a$，那么有
 
 $$
 a^{p-1}\equiv1\ (\bmod\ p)
@@ -136,13 +107,13 @@ int main()
 } 
 ```
 
-为了让 Miller-Robbin 更加正确，我们引入一个二次探测定理。它是这样描述的，若 $p$ 为一个奇质数，那么使得 $x^2\equiv1\pmod{p}$ 的小于 $p$ 的 $x$ 满足 $x=1$ 或 $x=p-1$。
+为了让 Miller-Rabin 更加正确，我们引入一个二次探测定理。它是这样描述的，若 $p$ 为一个奇质数，那么使得 $x^2\equiv1\pmod{p}$ 的小于 $p$ 的 $x$ 满足 $x=1$ 或 $x=p-1$。
 
 欲证明此定理，因为 $x^2-1\equiv1\pmod{p}$，所以 $p\mid x^2-1$ 即 $p\mid(x+1)(x-1)$，所以 $p\mid x+1$ 或 $p\mid x-1$，即 $x+1\equiv0\pmod{p}$ 或 $x-1\equiv0\pmod{p}$，又因为 $x<p$，所以 $x=1$ 或 $x=p-1$。
 
-然后我们 Miller-Robbin 的做法是，首先将 $n-1$ 中的因子 $2$ 全部拆出来剩余 $d$，记录因子 $2$ 的数量 $b$。每次随机一个数 $a$，计算 $y=a^d$，然后平方 $b$ 次，在平房过程中如果出现 $y\not\equiv1$ 且 $y\not\equiv n-1$ 而 $y^2\equiv1$ 的情况，则该数不为质数。
+然后我们 Miller-Rabin 的做法是，首先将 $n-1$ 中的因子 $2$ 全部拆出来剩余 $d$，记录因子 $2$ 的数量 $b$。每次随机一个数 $a$，计算 $y=a^d$，然后平方 $b$ 次，在平房过程中如果出现 $y\not\equiv1$ 且 $y\not\equiv n-1$ 而 $y^2\equiv1$ 的情况，则该数不为质数。
 
-大概，还是需要重复至少 $8$ 次。
+在同时使用费马素性测试和二次探测素性测试的时候，我们大约重复调用至少 8 次即可保证正确性。
 
 ```cpp
 #include <cstdio>
@@ -228,27 +199,27 @@ $$
 
 时间复杂度为 $O(N\log\log N)$。
 
-### 线性筛法
+### Euler 筛法
 
-线性筛法基于这样的思想，因为唯一分解定理，所以对任何一个合数 $n$，均可以分解为若干质因数之积，其中必然有一个最小的质因子 $p_n$。我们就在循环到 $\frac{n}{p_n}$ 的时候将 $n$ 筛除（先不论如何筛除），我们这样能明确所有合数 $n$ 都将被唯一的 $\frac{n}{p_n}$ 筛除。
+Euler 筛法又称欧拉筛法，线性筛法。Euler 筛法基于这样的思想，因为唯一分解定理，所以对任何一个合数 $n$，均可以分解为若干质因数之积，其中必然有一个最小的质因子 $p_n$。我们就在循环到 $\frac{n}{p_n}$ 的时候将 $n$ 筛除，我们这样能明确所有合数 $n$ 都将被唯一的 $\frac{n}{p_n}$ 筛除。
 
-因为 $p_n$ 是 $n$ 的最小质因子，所以满足 $p_n\leq p_{\frac{n}{p_n}}$。那么合数 $x$ 能被 $y$ 筛除，当且仅当 $y\mid x$ 且 $\frac{x}{y}\leq p_y$。我们在循环到 $i$ 时，只需要将 $2,3,...,p_i$ 倍的 $i$ 筛除即可。这样，所有的合数 $n$ 都将作为 $p_n$ 倍的 $\frac{n}{p_n}$ 被筛除。
+我们在扫描到 $x$ 的时候，考虑在 $x$ 的基础上累计一个「最小值因子」，具体说，考虑将 $x$ 乘上不超过 $p_x$ 的所有质数，这样得来的数标记为合数。因此，每一个合数 $n$ 都会且仅会在扫描到 $\frac{n}{p_n}$ 的时候被以 $\frac{n}{p_n}\times p_n$ 的形式筛掉。
 
 $$
 \\begin{array}{l}
-  & \\text{LINEAR-SIEVE}(N) \\\\
+  & \\text{SIEVE-OF-EULER}(N) \\\\
   & \\begin{array}{rl}
     1 &  \\textbf{for } i \\gets 2 \\text{ to } \\sqrt{N} \\\\
     2 &  \\qquad \\textbf{if } p_i = 0 \\\\
     3 &  \\qquad \\qquad \\text{Number } i \\text{ is a prime number.} \\\\
     4 &  \\qquad \\qquad p_i \\gets i \\\\
-    5 &  \\qquad \\textbf{for } k \\gets 2 \\text{ to } p_i \\\\
+    5 &  \\qquad \\textbf{for } k \\gets \\text{primes in }[2, p_i] \\\\
     6 &  \\qquad \\qquad p_{ki} \\gets k
     \\end{array}
 \\end{array}
 $$
 
-时间复杂度为 $O(N)$。
+因为每个合数都只会被筛一次，时间复杂度为 $O(N)$。
 
 ### T Prime Distance
 
@@ -258,7 +229,7 @@ $$
 
 <br>
 
-我们需要筛出 $[L,R]$ 中所有的质数，然后扫描一遍求解。筛质数的时候，我们发现 $L,R$ 的范围很大，但是 $R-L$ 却不足大。此时线性筛法是 $O(R)$ 的，行不通。
+我们需要筛出 $[L,R]$ 中所有的质数，然后扫描一遍求解。筛质数的时候，我们发现 $L,R$ 的范围很大，但是 $R-L$ 却不足大。此时 Euler 筛法是 $O(R)$ 的，行不通。
 
 Eratosthenes 筛法告诉我们可以通过筛除 $[2,\sqrt{R}]$ 中所有质数的非 $1$ 倍数，因此我们可以先筛出 $[2,\sqrt{R}]$ 的所有质数，然后对每个 $x\in[2,\sqrt{R}]$ 筛除 $i=\left[\left\lceil\frac{L}{x}\right\rceil,\left\lfloor\frac{R}{x}\right\rfloor\right]$ 倍的 $x$ 即可。
 
@@ -332,36 +303,14 @@ $$
 
 时间复杂度为 $O(\sqrt{N})$。
 
-### Pollard's Rho 算法
+### Pollard Rho 算法
 
-Pollard's Rho 算法是用来快速找到大合数的一个因数的。
+Pollard Rho 大数分解算法直接解决了分解出一个大合数的非平凡因子的问题，如果要分解质因数还需要递归处理。
 
-有一种想法是这样的
-
-$$
-\\begin{array}{l}  & \\text{DECOMPOSITION}(N) \\\\  & \\begin{array}{rl}    1 &  \\textbf{do} \\\\    2 &  \\qquad x = \\text{RANDOM}(2,N-1) \\\\    3 &  \\textbf{while } N \\bmod x \\neq 0 \\\\    4 &  \\textbf{return } x    \\end{array}\\end{array}
-$$
-
-看着有点像搞笑的，但是 Pollard's Rho 算法确实是基于这样的思想。另外，其实上面那玩意儿还可以改进。
-
-$$
-\\begin{array}{l}  & \\text{DECOMPOSITION}(N) \\\\  & \\begin{array}{rl}    1 &  \\textbf{do} \\\\    2 &  \\qquad x = \\text{GCD}(\\text{RANDOM}(2,N-1),N) \\\\    3 &  \\textbf{while } x = 1 \\\\    4 &  \\textbf{return } x    \\end{array}\\end{array}
-$$
-
-由于生日悖论什么乱七八糟的，期望在 $\sqrt{N}$ 的步数过后随机值会出现重复。我们这里用上伪随机序列。
-
-$$
-A={a_1,a_2,...a_n}
-$$
-
-其中，每个 $a_{i+1}$ 由 $a_i$ 通过固定的方式生成。比如一般来说，我们会用 $a_{i+1}=(a_i^2+c) \bmod N$，$c$ 是一个常数。我们的随机值就用 $|a_i-a_{2i}|$ 代替。
-
-利用这个方式生成随机数到达一定时候一定会出现循环，形成类似希腊字母 $\rho$ 的造型，故因此而得名。我们判断什么时候出现循环，就在于 Floyd 提出的一个算法，形象说就是在圆形轨道上，让 B 的速度为 A 的速度的 $2$ 倍，那么当 B 第一次追上 A 就知道已经结束了循环节。因此我们会用 $|a_i-a_{2i}|$。
-
-代码就算了吧。
+我们将在[下一节](/Informatics/Notes/MATH-NUMBER-THEORY-Divisor/#Pollard-Rho-大数分解算法)学习 Pollard Rho 大数分解算法。
 
 ## 结话
 
-质数在数论的意义上，是乘法不可再分。根据算数基本定理，就是组成数的最小因子。这好比化学上的原子，不可再分的最小粒子。
+质数在数论的意义上，是乘法不可再分。根据算术基本定理，就是组成数的最小因子。这好比化学上的原子，不可再分的最小粒子。
 
 数论者，往往复复，不过在质因子上做文章罢了。

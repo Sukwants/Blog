@@ -25,7 +25,7 @@ $$
 
 ## T 石子合并
 
-题目来源：NOI1995
+题目来源：NOI 1995
 评测链接：<https://www.luogu.com.cn/problem/P1880>
 
 在一个圆形操场的四周摆放 $N$ 堆石子，现要将石子有次序地合并成一堆，规定每次只能选相邻的2堆合并成新的一堆，并将新的一堆的石子数，记为该次合并的得分。
@@ -107,11 +107,11 @@ int main()
 }
 ```
 
-练习：[[NOIP2006 提高组] 能量项链](https://www.luogu.com.cn/problem/P1063)
+练习：[[NOIP 2006 提高组] 能量项链](https://www.luogu.com.cn/problem/P1063)
 
 ## T 加分二叉树
 
-题目来源：NOIP2003 提高组
+题目来源：NOIP 2003 提高组
 评测链接：<https://www.luogu.com.cn/problem/P1040>
 
 设一个 $n$ 个节点的二叉树 $\text{tree}$ 的中序遍历为$(1,2,3,\ldots,n)$，其中数字 $1,2,3,\ldots,n$ 为节点编号。每个节点都有一个分数（均为正整数），记第 $i$ 个节点的分数为 $d_i$，$\text{tree}$ 及它的每个子树都有一个加分，任一棵子树 $\text{subtree}$（也包含 $\text{tree}$ 本身）的加分计算方法如下：
