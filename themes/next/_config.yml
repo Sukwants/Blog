@@ -105,6 +105,7 @@ menu:
   #commonweal: /404/ || fa fa-heartbeat
   journey: /journey/ || fas fa-road
   friends: /friends/ || fas fa-address-book
+  translate: /translate/ || fa fa-language
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
