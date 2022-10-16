@@ -314,3 +314,8 @@ Pollard Rho 大数分解算法直接解决了分解出一个大合数的非平�
 质数在数论的意义上，是乘法不可再分。根据算术基本定理，就是组成数的最小因子。这好比化学上的原子，不可再分的最小粒子。
 
 数论者，往往复复，不过在质因子上做文章罢了。
+
+<div class="popular-posts-header">参考资料</div>
+
+  - 《信息学奥赛一本通 · 提高篇》- 《第六部分 第 2 章 质数》
+  - [素数 - OI Wiki](https://oi-wiki.org/math/number-theory/prime/)

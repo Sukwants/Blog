@@ -1,13 +1,10 @@
 ---
-title: Hexo 主题 NexT 魔改备忘录
-category:
-  - others
-  - Computer
+title: 博客乱搞
 categories:
   - others
-  - Technology
+  - Computer
 date: 2022-05-06 14:44:38
-updated: 2022-08-21 19:22:54
+updated: 2022-10-17 00:20:19
 tags:
 ---
 
@@ -17,6 +14,8 @@ tags:
 <!--more-->
 
 ## 依稀记得，来时的路
+
+2022/10/16 伪造 Google 翻译。
 
 2022/08/05 首次编写插件并发布到 npm 上。
 

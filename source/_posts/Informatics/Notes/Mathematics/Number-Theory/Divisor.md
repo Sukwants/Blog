@@ -393,3 +393,9 @@ int main()
 如果说，质数是数论的原子，那么因数，便是数论的星桥。因为因数与倍数，整除与质数，才在乘法中，绘出璀璨的数论星河。
 
 看，因数，就是那飘渺于繁星之间的鹊桥。
+
+<div class="popular-posts-header">参考资料</div>
+
+  - 《信息学奥赛一本通 · 提高篇》 - 《第六部分 第 3 章 因数》
+  - [分解质因数 - OI Wiki](https://oi-wiki.org/math/number-theory/pollard-rho/)
+  - 《算法导论》 - 《31.9 整数的因子分解》
