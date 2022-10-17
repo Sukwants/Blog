@@ -1,6 +1,6 @@
 ---
-title: '分类: Notes'
-comments: false
+title: 图论 - 树 - 树的直径与重心
+comments: false 
 ---
 
 
@@ -9,7 +9,7 @@ comments: false
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex">
-    <meta http-equiv="refresh" content="0;url=/categories/others/">
+    <meta http-equiv="refresh" content="0;url=/Informatics/Notes/Graph-Theory/Tree/Diameter-Centroid-of-Tree/">
 </head>
 <body>
 <p><center>跳转中 ……</center></p>
