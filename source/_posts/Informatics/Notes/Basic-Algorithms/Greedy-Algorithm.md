@@ -1,7 +1,6 @@
 ---
 title: 基础算法 - 贪心法
 tags:
-  - '[I] 基础算法'
   - '[I] 贪心法'
 categories:
   - Informatics
