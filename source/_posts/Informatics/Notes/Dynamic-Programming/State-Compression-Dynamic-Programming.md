@@ -99,7 +99,7 @@ $$
 
 ## T 互不侵犯
 
-题目来源：SCOI2005
+题目来源：SCOI 2005
 评测链接：<https://www.luogu.com.cn/problem/P1896>
 
 在 N × N 的棋盘里面放 K 个国王，使他们互不攻击，共有多少种摆放方案。国王能攻击到它上下左右，以及左上左下右上右下八个方向上附近的各一个格子，共 8 个格子。
@@ -198,7 +198,7 @@ int main()
 
 ## T 覆盖问题
 
-题目来源：QZOJ
+题目来源：124OJ 383
 评测链接 1：<http://124.221.137.247/problem/383>
 评测链接 2：<https://hydro.ac/d/sukwoj/p/QZ38>
 类题链接：<https://www.acwing.com/problem/content/293/>

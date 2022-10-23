@@ -50,7 +50,7 @@ date: 2022-08-12 18:30:24
 
 ## T Lomsat gelral
 
-题目来源：Codeforces
+题目来源：Codeforces 600E
 评测链接：<https://codeforces.com/problemset/problem/600/E>
 
 有根树上有 $n$ 个结点，以 $1$ 号结点为根，每个结点有一个颜色，对每棵子树计算子树内数量最多的颜色，如有并列同时输出。
@@ -152,7 +152,7 @@ int main()
 
 ## T Arpa’s letter-marked tree and Mehrdad’s Dokhtar-kosh paths
 
-题目来源：Codeforces
+题目来源：Codeforces 741D
 评测链接：<https://codeforces.com/problemset/problem/741/D>
 
 有根树，$n$ 个结点，根为 $1$ 号结点，每条边写有一个 $a-v$ 的小写字母。求出一条最长的路径，使得路径上所有边所写的字母经过重新排列后能够生成一条回文串。

@@ -188,7 +188,7 @@ int main()
 
 ## T Watching Fireworks is Fun
 
-题目来源： Codeforces
+题目来源： Codeforces 372C
 评测链接：<https://codeforces.com/problemset/problem/372/C>
 
 街上有 $n$ 个位置，编号从 $1$ 到 $n$，相邻两个位置的距离为 $1$ 个单位距离。
