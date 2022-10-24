@@ -1,7 +1,7 @@
 ---
 title: 字符串 - KMP 算法 & Z 算法
 tags:
-  - '[I] 字符串算法'
+  - '[I] 字符串'
 categories:
   - Informatics
   - Notes
