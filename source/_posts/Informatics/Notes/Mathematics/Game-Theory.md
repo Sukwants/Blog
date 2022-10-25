@@ -63,7 +63,7 @@ Nim 游戏有一个优雅的算法，我们令 $s=a_1\oplus a_2\oplus\ldots\oplu
 $$
 g(x)=\begin{cases}
 0 & x\text{ 为终止状态}\\\\
-\operatorname{mex}\\({g(y)\mid y\text{ 是 }x\text{   的后继状态}\\}) & \textbf{otherwise.}
+\operatorname{mex}(\\{g(y)\mid y\text{ 是 }x\text{   的后继状态}\\}) & \textbf{otherwise.}
 \end{cases}
 $$
 
