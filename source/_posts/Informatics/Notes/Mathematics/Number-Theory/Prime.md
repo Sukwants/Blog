@@ -61,7 +61,7 @@ $$
 
 反例，当 $a=2,p=341$ 时 $a^{p-1}\equiv1\ (\bmod\ p)$，但 $p=341=11\times 31$ 是一个合数。我们称这样的数为伪质数。
 
-这意味着我们有概率错判，但这样也好办，大概多操作几次，这样错误概率就趋近于零了。重复操作大约 30 次，便能将正确率提高到我们期望的水平。当然，如果遇到一些毒瘤的出题人，比如说 [[LOJ143]质数判定](https://loj.ac/p/143)，那就寄了。
+这意味着我们有概率错判，但这样也好办，大概多操作几次，这样错误概率小得多了。当然，这样是远远不够的，比如说 [[LOJ143]质数判定](https://loj.ac/p/143)，上述方法就寄了。
 
 时间复杂度为 $O(k\log n)$，$k$ 为重复操作次数。
 
@@ -111,65 +111,79 @@ int main()
 
 欲证明此定理，因为 $x^2-1\equiv1\pmod{p}$，所以 $p\mid x^2-1$ 即 $p\mid(x+1)(x-1)$，所以 $p\mid x+1$ 或 $p\mid x-1$，即 $x+1\equiv0\pmod{p}$ 或 $x-1\equiv0\pmod{p}$，又因为 $x<p$，所以 $x=1$ 或 $x=p-1$。
 
-然后我们 Miller-Rabin 的做法是，首先将 $n-1$ 中的因子 $2$ 全部拆出来剩余 $d$，记录因子 $2$ 的数量 $b$。每次随机一个数 $a$，计算 $y=a^d$，然后平方 $b$ 次，在平房过程中如果出现 $y\not\equiv1$ 且 $y\not\equiv n-1$ 而 $y^2\equiv1$ 的情况，则该数不为质数。
+然后我们 Miller-Rabin 的做法是，首先将 $n-1$ 中的因子 $2$ 全部拆出来剩余 $d$，记录因子 $2$ 的数量 $b$。每次随机一个数 $a$，计算 $y=a^d$，然后平方 $b$ 次，在平方过程中如果出现 $y\not\equiv1$ 且 $y\not\equiv n-1$ 而 $y^2\equiv1$ 的情况，则该数不为质数。
 
-在同时使用费马素性测试和二次探测素性测试的时候，我们大约重复调用至少 8 次即可保证正确性。
+在同时使用费马素性测试和二次探测素性测试的时候，我们大约重复调用至少 8 次即可保证正确性，这样就能通过 LOJ 上的题了。
 
 ```cpp
 #include <cstdio>
-#include <cstdlib>
 #include <ctime>
+#include <random>
 
-int pow(long long x, int b, int mod)
-{
-    long long Ans = 1;
-    while (b)
-    {
-        if (b & 1) Ans = (Ans * x) % mod;
+std::mt19937 eng(time(0));
+
+long long pow(__int128 x, long long b, long long mod) {
+    __int128 Ans = 1;
+
+    while (b) {
+        if (b & 1)
+            Ans = (Ans * x) % mod;
+
         x = (x * x) % mod;
         b >>= 1;
     }
-    return Ans;
+
+    return (long long)(Ans);
 }
 
-bool isprime(int x)
-{
-    if (x < 2) return false;
-    if (x == 2) return true;
-    if (!(x & 1)) return false;
+bool Miller_Rabin(long long x) {
+    if (x < 2)
+        return false;
 
-    int d = x - 1, b = 0;
-    while (!(d & 1)) d >>= 1, ++b;
-    for (int i = 1; i <= 8; ++i)
-    {
-        int y = pow(rand() % (x - 2) + 2, d, x);
-        if (y == 1 || y == x - 1) continue;
-        for (int j = 1; j < b; ++j)
-        {
-            y = 1ll * y * y % x;
-            if (y == x - 1) break;
-            if (y == 1) return false;
-        }
-        if (y != x - 1) return false;
+    if (x == 2)
+        return true;
+
+    if (!(x & 1))
+        return false;
+
+    long long d = x - 1;
+    int s = 0;
+
+    while (!(d & 1)) {
+        d >>= 1;
+        s++;
     }
+
+    for (int i = 1; i <= 8; i++) {
+        __int128 y = pow(eng() % (x - 2) + 2, d, x);
+
+        if (y == 1)
+            continue;
+
+        for (int j = 1; j <= s; j++) {
+            if (y == x - 1)
+                break;
+
+            y = y * y % x;
+        }
+
+        if (y != x - 1)
+            return false;
+    }
+
     return true;
 }
 
-int n, a;
+long long x;
 
-int main()
-{
-    scanf("%d", &n);
-
+int main() {
     srand(time(0));
-    for (int i = 1; i <= n; ++i)
-    {
-        scanf("%d", &a);
-        if (isprime(a)) printf("%d ", a);
-    }
+
+    while (scanf("%lld", &x) != EOF)
+        puts(Miller_Rabin(x) ? "Y" : "N");
 
     return 0;
-} 
+}
 ```
 
 ## 质数的筛选
