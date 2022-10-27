@@ -6,7 +6,7 @@ comments: false
 
 [关于 Google 翻译](https://translate.google.com/about/?hl=zh-CN)
 
-2022 年 9 月 28 日起，中国大陆用户访问 Google 翻译会有概率被引导到香港域名；2022 年 10 月 1 日，Google 关闭了其在中国大陆的翻译服务，理由是「使用率过低」。自此，中国大陆地区的 Google 翻译网页版和使用 Google 翻译 API 的软件均不能使用，中国大陆地区迎来了 Google 翻译的谢幕。
+2022 年 9 月 28 日起，中国大陆用户访问 Google 翻译会有概率被引导到香港域名；2022 年 10 月 1 日，Google 关闭了其在中国大陆的翻译服务，理由是「使用率过低」。（以上时间均为 Sukwants 感知时间，不保证准确性。）自此，中国大陆地区的 Google 翻译网页版和使用 Google 翻译 API 的软件均不能使用，中国大陆地区迎来了 Google 翻译的谢幕。
 
 <img src="./goodbye.png" alt="再见，Google 翻译">
 
