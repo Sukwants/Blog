@@ -6,8 +6,6 @@ categories:
 date: 2022-03-03 12:00:00
 updated: 2022-07-03 22:23:24
 tags:
-password: WTY AK IOI
-message: Hey, password is required here.（看够没有，还看！）
 ---
 
 
@@ -471,7 +469,7 @@ $$
 
 考试的时候满脑子单曲循环出征的音乐，唉~
 
-{% aplayer "迈向考场" "李鹏" "maixiangkaochang.mp3" "maixiangkaochang.webp" lrc:"maixiangkaochang.lrc"%}
+{% aplayer "迈向考场" "李鹏" "maixiangkaochang.mp3" "maixiangkaochang.webp" "lrc:maixiangkaochang.lrc" %}
 
 ---
 
@@ -548,12 +546,12 @@ DC 信息学返校，想了想还是没去。
 同学个个都是人才。
 
 {% blockquote %}
-@CuO：830
-@CuO：成都市第七职业高中，我来了！
-@雎：北门外，林荫下。
-@雎：能再次见到生龙活虎的你们，我很高兴！
+<p>@CuO：830</p>
+<p>@CuO：成都市第七职业高中，我来了！</p>
+<p>@雎：北门外，林荫下。</p>
+<p>@雎：能再次见到生龙活虎的你们，我很高兴！</p>
 <p>@静·追光：亲爱的绵阳，再会&nbsp;&nbsp;&nbsp;&nbsp;FROM NOW ON,我将向你奔赴而来</p>
-@静·追光：愿我们终不枉遇见，还要一起共赴璀璨的三年之约
+<p>@静·追光：愿我们终不枉遇见，还要一起共赴璀璨的三年之约</p>
 {% endblockquote %}
 
 ## Day 15
