@@ -138,17 +138,18 @@ footer:
 
 ### /themes/next/layout/\_macro/post.njk
 
-在第 $1$ 行，加入了
+在第 $1$ 行，加入了（已删除）
 
 ```njk
 {%- if not (is_index and post.unshow == true) %}
 ```
 
-在第 $155$ 行，加入了
+在第 $155$ 行，加入了（已删除）
 
 ```njk
 {%- endif %}
 ```
+
 第 $32$ 行与第 $33$ 行之间、第 $36$ 行与第 $37$ 行之间，删除了 $2$ 处
 
 ```njk
