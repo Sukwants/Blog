@@ -1,7 +1,7 @@
 ---
-title: 基础算法 - 分治法
+title: 基础算法 - 二分法 & 三分法
 tags:
-  - '[I] 分治法'
+  - '[I] 二分与三分'
 categories:
   - Informatics
   - Notes
@@ -9,21 +9,17 @@ date: 2022-07-31 10:29:57
 ---
 
 
-分而治之，大而化小
+三两分之，大而化小
 
 <!--more-->
 
 ## 介绍
 
-分治法，Divide and Conquer Algorithm，字面意义，「分而治之」。
-
-我们对于一个规模巨大的问题，将其切成几个子问题，对于每个子问题分别求解再合并，或者说做出判断选取其中一个子问题求解，这样将大规模的问题不断切分成小规模的问题，是分治法的核心思想。
-
-如上，分治法的一般形式有两种：1. 分而治之，递归；2. 不断缩小问题规模直至得出答案。
+我们对一个问题，通过二分或者三分，将其问题规模缩小在原规模的 $\frac{1}{2}$ 或者 $\frac{2}{3}$，直至规模归 $1$，得到答案。
 
 ## 二分法
 
-二分法，顾名思义，每次将问题分为两个子问题，上述第一种形式的代表是二分排序、基于二分思想的线段树，第二种形式的代表是二分查找、二分求连续函数零点、二分答案。
+二分法，顾名思义，每次将问题分为两段，代表是二分查找、二分求连续函数零点、二分答案。
 
 先看一个简单的例子，这个例子经常被用来入门二分。有这样一个游戏叫做数字炸弹，一个人在一定值域内随意选定一个数，其余人在可能的答案中随意猜这个数，这个人会给出猜到的数比答案大、比答案小或正确的回复。如果有人猜中，那此人就寄了，可能会被惩罚，然后作为下一轮的裁判。
 
@@ -59,81 +55,6 @@ $$
 ``upper_bound(type *start, type *end, type x)``，在地址从 ``start`` 到 ``end`` 的左闭右开区间中查找数 ``x``，返回所有 ``x`` 组成的区间的结尾地址的后一个。也描述成返回第一个大于 ``x`` 的元素的地址。
 
 比如说，我要在数组 ``a[1...n]`` 中查找第一个 ``x`` 的下标，那就用 ``lower_bound(a + 1, a + n + 1, x) - a``。
-
-### 二分排序
-
-基于二分思想的排序方法常用的有两种，快速排序和归并排序。以下假设我们要将数组升序排序。
-
-#### 快速排序
-
-对于一个待排序区间，我们随机抓取区间中的一个元素 $x$，将所有小于等于 $x$ 的数移到整个区间的左半部分，将所有大于 $x$ 的数移到整个区间的右半部分，然后分别对左半部分和右半部分排序。
-
-将元素分为两半部分的操作我们是这样实现的。用一个指针 $i$ 从区间左端点开始向右扫描，扫描到第一个大于 $x$ 的数为止；用一个指针 $j$ 从区间右端点开始向左扫描，扫描到第一个小于等于 $x$ 的数为止。将位于 $i$、$j$ 的数交换，接着继续 $i$ 向右、$j$ 向左扫描，直到 $i>j$ 为止。
-
-$$
-\\begin{align}
-  & \\text{QUICK-SORT}(l,r)\\\\
-  & \\begin{array}{rl}
-      1  &  \\textbf{if } l \\geq r\\\\
-      2  &  \\qquad \\textbf{return void}()\\\\
-      3  &  \\mathit{mid}=A[\\text{RANDOM}(l,r)]\\\\
-      4  &  i=l\\\\
-      5  &  j=r\\\\
-      6  &  \\textbf{while } i<j\\\\
-      7  &  \\qquad \\textbf{while } A[i] \\leq \\mathit{mid} \\textbf{ and } i \\leq r\\\\
-      8  &  \\qquad \\qquad i=i+1\\\\
-      9  &  \\qquad \\textbf{while } A[j] > \\mathit{mid} \\textbf{ and } j \\geq l\\\\
-      10 &  \\qquad \\qquad j=j-1\\\\
-      11 &  \\qquad \\textbf{if } i<j\\\\
-      12 &  \\qquad \\qquad \\text{SWAP(A[i],A[j])}\\\\
-      13 &  \\text{QUICK-SORT}(l,j)\\\\
-      14 &  \\text{QUICK-SORT}(i,r)
-    \\end{array}
-\\end{align}
-$$
-
-快速排序的平均时间复杂度为 $\mathrm{O}(n\log n)$，最坏时间复杂度为 $\mathrm{O}(n^2)$。就随机情况而言，它被认为是时间复杂度最优秀的基于定义域的排序算法。快速排序是不稳定的排序。
-
-C++ 的 ``<algorithm>`` 库中包含实现了快速排序的函数 ``sort(type *start,type *end)``，对地址从 ``start`` 到 ``end`` 的左闭右开区间升序排序，对于未实现 ``<`` 的类型，可以自写比较函数并赋为第三个参数。也可以用 ``<functional>`` 库中的 ``greater<type>()``，这将会让数组降序排序。
-
-#### 归并排序
-
-我们将待排序区间等分成左右两个区间，对左右区间分别归并排序，然后合并左右区间。
-
-合并的方法是，另开一个数组，将左右两个有序区间的开头元素作比较，取出更小的一个放入新的数组，然后将这一个从属的区间的开头标记往后移一位，继续比较，直到其中一个区间无剩余为止，剩下的数依次加入新的数组。
-
-$$
-\\begin{align}
-  & \\text{MERGE}(l,\\mathit{mid},r)\\\\
-  & \\begin{array}{rl}
-      1  &  i=l \\\\
-      2  &  j=\\mathit{mid}+1 \\\\
-      3  &  \\textbf{while } i \\leq mid \\textbf{ and } j \\leq r \\\\
-      4  &  \\qquad \\textbf{if } A[i]\\leq A[j] \\\\
-      5  &  \\qquad \\qquad B[i+j-\\mathit{mid}-1]=A[i] \\\\
-      6  &  \\qquad \\qquad i=i+1 \\\\
-      7  &  \\qquad \\textbf{else} \\\\
-      8  &  \\qquad \\qquad B[i+j-\\mathit{mid}-1]=A[j] \\\\
-      9  &  \\qquad \\qquad j=j+1 \\\\
-      10 &  \\textbf{if } i \\leq \\mathit{mid} \\\\
-      11 &  \\qquad B[i+j-\\mathit{mid}-1...r]=A[i...\\mathit{mid}] \\\\
-      12 &  \\textbf{else} \\\\
-      13 &  \\qquad B[i+j-\\mathit{mid}-1...r]=A[j...r] \\\\
-      14 &  A[l...r]=B[l...r]
-     \\end{array}\\\\\\\\
-  & \\text{MERGE-SORT}(l,r)\\\\
-  & \\begin{array}{rl}
-      1 &  \\textbf{if } l==r \\\\
-      2 &  \\qquad \\textbf{return void}() \\\\
-      3 &  \\mathit{mid}=\\left\\lfloor\\frac{l+r}{2}\\right\\rfloor \\\\
-      4 &  \\text{MERGE-SORT}(l,\\mathit{mid}\\,) \\\\
-      5 &  \\text{MERGE-SORT}(\\mathit{mid}+1,r) \\\\
-      6 &  \\text{MERGE}(l,\\mathit{mid},r)
-    \\end{array}
-\\end{align}
-$$
-
-归并排序的时间复杂度稳定为 $\mathrm{O}(n\log n)$，此外，归并排序是稳定的排序。
 
 ### 二分法求连续函数零点
 
@@ -384,7 +305,7 @@ int main()
 
 ## 废题
 
-有些时候，一些适用分治法的题目数学特性太强，导致可以直接推出函数表达式，进而通过数学知识求得零点或者最值。比如你可以用 $\frac{4ac-b^2}{4a}$。
+有些时候，一些适用二分或三分法的题目数学特性太强，导致可以直接推出函数表达式，进而通过数学知识求得零点或者最值。比如你可以用 $\frac{4ac-b^2}{4a}$。
 
 ### T 灯泡
 
