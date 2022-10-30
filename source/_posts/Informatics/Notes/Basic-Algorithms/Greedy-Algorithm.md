@@ -1,5 +1,5 @@
 ---
-title: 基础算法 - 贪心法
+title: 贪心法
 tags:
   - '[I] 贪心法'
 categories:

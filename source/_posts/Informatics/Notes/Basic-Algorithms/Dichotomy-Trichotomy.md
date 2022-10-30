@@ -1,5 +1,5 @@
 ---
-title: 基础算法 - 二分法 & 三分法
+title: 二分法 & 三分法
 tags:
   - '[I] 二分与三分'
 categories:
