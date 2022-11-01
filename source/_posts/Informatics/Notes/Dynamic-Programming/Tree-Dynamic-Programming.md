@@ -158,7 +158,7 @@ int main()
 template <class T>
 T max(T x, T y)
 {
-	return x > y ? x : y;
+    return x > y ? x : y;
 }
 
 int N, V, v[101], w[101], p[101];
@@ -167,43 +167,43 @@ int f[101][101], rt;
 
 void build(int x, int y)
 {
-	++t;
-	to[t] = y;
-	nxt[t] = h[x];
-	h[x] = t;
+    ++t;
+    to[t] = y;
+    nxt[t] = h[x];
+    h[x] = t;
 }
 
 void dp(int x)         // DP 核心，采用 DFS 模式递归到叶子结点
 {
-	for (int i = v[x]; i <= V; ++i)      // 该子树的根节点一定要选
-		f[x][i] = w[x];
-	for (int i = h[x]; i; i = nxt[i])    // 遍历子结点，之所以把它安排到外层循环是因为 0/1 背包的要求
-	{
-		#define y to[i]
-		dp(y);
-		for (int j = V; j >= v[x]; --j)  // 这一层是滚动数组优化技巧要求要特别注意遍历顺序的一层
-			for (int k = v[y]; k <= j - v[x]; ++k)     // 这一层是寻找当前最优决策
-				f[x][j] = max(f[x][j], f[x][j - k] + f[y][k]);
-	}
-	/*
-	以上三层循环均结束过后，f[x][y]|y∈N 才同时最终确定，循环过程中均为过程量。
-	外两层循环为 0/1 背包的模板结构。
-	*/
+    for (int i = v[x]; i <= V; ++i)      // 该子树的根节点一定要选
+        f[x][i] = w[x];
+    for (int i = h[x]; i; i = nxt[i])    // 遍历子结点，之所以把它安排到外层循环是因为 0/1 背包的要求
+    {
+        #define y to[i]
+        dp(y);
+        for (int j = V; j >= v[x]; --j)  // 这一层是滚动数组优化技巧要求要特别注意遍历顺序的一层
+            for (int k = v[y]; k <= j - v[x]; ++k)     // 这一层是寻找当前最优决策
+                f[x][j] = max(f[x][j], f[x][j - k] + f[y][k]);
+    }
+    /*
+    以上三层循环均结束过后，f[x][y]|y∈N 才同时最终确定，循环过程中均为过程量。
+    外两层循环为 0/1 背包的模板结构。
+    */
 }
 
 int main()
 {
-	scanf("%d%d", &N, &V);
-	for (int i = 1; i <= N; ++i)
-	{
-		scanf("%d%d%d", v + i, w + i, p + i);
-		build(p[i], i);
-		if (p[i] == -1) rt = i; 
-	}
+    scanf("%d%d", &N, &V);
+    for (int i = 1; i <= N; ++i)
+    {
+        scanf("%d%d%d", v + i, w + i, p + i);
+        build(p[i], i);
+        if (p[i] == -1) rt = i; 
+    }
 
-	dp(rt);
-	printf("%d", f[rt][V]);
-	return 0;
+    dp(rt);
+    printf("%d", f[rt][V]);
+    return 0;
 }
 ```
 
@@ -267,12 +267,12 @@ int main()
 template <class T>
 T min(T x, T y)
 {
-	return x < y ? x : y;
+    return x < y ? x : y;
 }
 template <class T>
 T max(T x, T y)
 {
-	return x > y ? x : y;
+    return x > y ? x : y;
 }
 
 int T;
@@ -283,60 +283,60 @@ int f[400005], Ans;
 
 void build(int x, int y, int z)
 {
-	++t;
-	to[t] = y;
-	nxt[t] = h[x];
-	we[t] = z;
-	h[x] = t;
+    ++t;
+    to[t] = y;
+    nxt[t] = h[x];
+    we[t] = z;
+    h[x] = t;
 }
 
 int dp(int x)
 {
-	if (!nxt[h[x]] && to[h[x]] == fa[x]) return f[x] = 0, 0x7fffffff;
-        	// f[x] = 0是为了避免源点在海边而出现结果无穷大的情况，返回 0x7fffffff 是因为大海能吸收无限水。
-	for (int i = h[x]; i; i = nxt[i])
-		if (to[i] != fa[x])
-		{
-			fa[to[i]] = x;
-			f[x] += min(dp(to[i]), we[i]);
-		}
-	return f[x];
+    if (!nxt[h[x]] && to[h[x]] == fa[x]) return f[x] = 0, 0x7fffffff;
+            // f[x] = 0是为了避免源点在海边而出现结果无穷大的情况，返回 0x7fffffff 是因为大海能吸收无限水。
+    for (int i = h[x]; i; i = nxt[i])
+        if (to[i] != fa[x])
+        {
+            fa[to[i]] = x;
+            f[x] += min(dp(to[i]), we[i]);
+        }
+    return f[x];
 }
 
 void cnt(int x, int up)          // up 表示水倒流回父结点的最大流量
 {
-	Ans = max(Ans, up + f[x]);
-	for (int i = h[x]; i; i = nxt[i])
-		if (to[i] != fa[x])
-		{
-			if (nxt[h[x]]) cnt(to[i], min(up + f[x] - min(f[to[i]], we[i]), we[i]));
-			else cnt(to[i], we[i]);     // 若根节点恰好就在海边，应下传的最大流量为该边容量。
-		}
+    Ans = max(Ans, up + f[x]);
+    for (int i = h[x]; i; i = nxt[i])
+        if (to[i] != fa[x])
+        {
+            if (nxt[h[x]]) cnt(to[i], min(up + f[x] - min(f[to[i]], we[i]), we[i]));
+            else cnt(to[i], we[i]);     // 若根节点恰好就在海边，应下传的最大流量为该边容量。
+        }
 }
 
 int main()
 {
-	scanf("%d", &T);
-	for (int test = 0; test < T; ++test)
-	{
-		t = 0;                            //
-		memset(h, 0, sizeof h);           // 多组数据，清空操作
-		memset(f, 0, sizeof f);           //
-		Ans = 0;
-		scanf("%d", &n);
-		for (int i = 1; i < n; ++i)
-		{
-			scanf("%d%d%d", &x, &y, &z);
-			build(x, y, z);
-			build(y, x, z);
-		}
+    scanf("%d", &T);
+    for (int test = 0; test < T; ++test)
+    {
+        t = 0;                            //
+        memset(h, 0, sizeof h);           // 多组数据，清空操作
+        memset(f, 0, sizeof f);           //
+        Ans = 0;
+        scanf("%d", &n);
+        for (int i = 1; i < n; ++i)
+        {
+            scanf("%d%d%d", &x, &y, &z);
+            build(x, y, z);
+            build(y, x, z);
+        }
 
-		dp(1);
-		cnt(1, 0);
+        dp(1);
+        cnt(1, 0);
 
-		printf("%d\n", Ans);
-	}
-	return 0;
+        printf("%d\n", Ans);
+    }
+    return 0;
 }
 ```
 

@@ -177,52 +177,52 @@ long long Ans = 0;
 
 int main()
 {
-	scanf("%d", &T);
-	for (int test = 1; test <= T; ++test)
-	{
-		scanf("%s", s + 1);
-		len = strlen(s + 1);
-		
-		p[0] = -1;
-		for (int i = 1; i <= len; ++i)
-		{
-			int j = p[i - 1];
-			while (~j && s[j + 1] != s[i]) j = p[j]; 
-			p[i] = j + 1;
-			
-			lp[i] = i - p[i];
-		}
-		
-		memset(cnt, 0, sizeof cnt);
-		c[len + 1] = 0;
-		for (int i = len; i >= 1; --i)
-		{
-			cnt[s[i] - 'a']++;
-			if (cnt[s[i] - 'a'] & 1) c[i] = c[i + 1] + 1;
-			else c[i] = c[i + 1] - 1;
-		}
-		
-		memset(cnt, 0, sizeof cnt);
-		cnt[s[1] - 'a'] = 1;
-		x = 1;
-		for (int i = 0; i <= 26; ++i) d[i] = (i >= x);
-		Ans = 0;
-		for (int i = 2; i < len; ++i)
-		{
-			Ans += d[c[i + 1]];
-			for (int j = i * 2; j < len; j += i)
-			{
-				if (i % lp[j] == 0) Ans += d[c[j + 1]];
-			}
-			cnt[s[i] - 'a']++;
-			if (cnt[s[i] - 'a'] & 1) x++;
-			else x--;
-			for (int j = x; j <= 26; ++j) d[j]++;
-		}
-		printf("%lld\n", Ans);
-	}
-	
-	return 0;
+    scanf("%d", &T);
+    for (int test = 1; test <= T; ++test)
+    {
+        scanf("%s", s + 1);
+        len = strlen(s + 1);
+        
+        p[0] = -1;
+        for (int i = 1; i <= len; ++i)
+        {
+            int j = p[i - 1];
+            while (~j && s[j + 1] != s[i]) j = p[j]; 
+            p[i] = j + 1;
+            
+            lp[i] = i - p[i];
+        }
+        
+        memset(cnt, 0, sizeof cnt);
+        c[len + 1] = 0;
+        for (int i = len; i >= 1; --i)
+        {
+            cnt[s[i] - 'a']++;
+            if (cnt[s[i] - 'a'] & 1) c[i] = c[i + 1] + 1;
+            else c[i] = c[i + 1] - 1;
+        }
+        
+        memset(cnt, 0, sizeof cnt);
+        cnt[s[1] - 'a'] = 1;
+        x = 1;
+        for (int i = 0; i <= 26; ++i) d[i] = (i >= x);
+        Ans = 0;
+        for (int i = 2; i < len; ++i)
+        {
+            Ans += d[c[i + 1]];
+            for (int j = i * 2; j < len; j += i)
+            {
+                if (i % lp[j] == 0) Ans += d[c[j + 1]];
+            }
+            cnt[s[i] - 'a']++;
+            if (cnt[s[i] - 'a'] & 1) x++;
+            else x--;
+            for (int j = x; j <= 26; ++j) d[j]++;
+        }
+        printf("%lld\n", Ans);
+    }
+    
+    return 0;
 }
 ```
 
@@ -248,9 +248,9 @@ Z 算法（扩展 KMP）解决这类问题，有字符串 $T$，对于任何 $i\
 l = 0, r = 0;
 for (int i = 2; i <= m; i++)
 {
-	if (i <= r) z[i] = min(z[i - l + 1], r - i + 1);
-	while (i + z[i] <= m && b[z[i] + 1] == b[i + z[i]]) z[i]++;
-	if (i + z[i] - 1 > r) l = i, r = i + z[i] - 1;
+    if (i <= r) z[i] = min(z[i - l + 1], r - i + 1);
+    while (i + z[i] <= m && b[z[i] + 1] == b[i + z[i]]) z[i]++;
+    if (i + z[i] - 1 > r) l = i, r = i + z[i] - 1;
 }
 ```
 

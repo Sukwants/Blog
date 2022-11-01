@@ -200,7 +200,7 @@ int main()
 
 题目来源：124OJ 383
 评测链接 1：<http://124.221.137.247/problem/383>
-评测链接 2：<https://hydro.ac/d/sukwoj/p/QZ38>
+评测链接 2：<https://hydro.ac/d/sukwoj/p/QZ383>
 类题链接：<https://www.acwing.com/problem/content/293/>
 
 输出用 $1 \times 2$ 的骨牌完全覆盖 $M(\leq 10)$ 行 $N(\leq 1000)$ 列的棋盘的方案总数，答案对 $1234567$ 取模。
@@ -234,41 +234,41 @@ bool ex[1200];
 
 bool exmn(int x)
 {
-	for (int i = 1; i <= _up; i <<= 1) if (!(x & i)) if ((i <<= 1) > _up || x & i) return 0;
-	return 1;
+    for (int i = 1; i <= _up; i <<= 1) if (!(x & i)) if ((i <<= 1) > _up || x & i) return 0;
+    return 1;
 }
 
 void preset()
 {
-	for (int i = 0; i <= _up; ++i) ex[i] = exmn(i);
+    for (int i = 0; i <= _up; ++i) ex[i] = exmn(i);
 }
 
 int main()
 {
-	scanf("%d%d", &m, &n);
-	
-	if (m & 1 && n & 1)
-	{
-		printf("-1");
-		return 0;
-	}
-	
-	_up = (1 << m) - 1;
-	preset();
-	
-	f[0][0] = 1;
-	for (int i = 1; i <= n; ++i)
-	{
-		for (int j = 0; j <= _up; ++j)
-		{
-			for (int k = 0; k <= _up; ++k)
-			{
-				if (!(j & k) && ex[j | k]) f[i][j] = (f[i][j] + f[i - 1][k]) % MOD;
-			}
-		}
-	}
-	printf("%d", f[n][0]);
-	return 0;
+    scanf("%d%d", &m, &n);
+    
+    if (m & 1 && n & 1)
+    {
+        printf("-1");
+        return 0;
+    }
+    
+    _up = (1 << m) - 1;
+    preset();
+    
+    f[0][0] = 1;
+    for (int i = 1; i <= n; ++i)
+    {
+        for (int j = 0; j <= _up; ++j)
+        {
+            for (int k = 0; k <= _up; ++k)
+            {
+                if (!(j & k) && ex[j | k]) f[i][j] = (f[i][j] + f[i - 1][k]) % MOD;
+            }
+        }
+    }
+    printf("%d", f[n][0]);
+    return 0;
 }
 ```
 

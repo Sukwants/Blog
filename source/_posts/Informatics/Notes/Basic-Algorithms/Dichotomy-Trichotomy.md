@@ -1,7 +1,7 @@
 ---
 title: 二分法 & 三分法
 tags:
-  - '[I] 二分与三分'
+  - '[I] 二分法 & 三分法'
 categories:
   - Informatics
   - Notes
@@ -341,24 +341,24 @@ using namespace std;
 
 int main()
 {
-	int T;
-	scanf("%d", &T);
-	for (int i = 1; i <= T; ++i)
-	{
-		double H, h, D;
-		scanf("%lf%lf%lf", &H, &h, &D);
-		double l = (H - h) / H * D;
-		double r = D;
-		double x = sqrt(D * (H - h));
-		fprintf(stderr, "%.3lf %.3lf %.3lf ", l, x, r);
-		double x_true;
-		if (x < l) x_true = l;
-		else if (x > r) x_true = r;
-		else x_true = x;
-		fprintf(stderr, "%.3lf\n", x_true);
-		printf("%.3lf\n", D + H - D * (H - h) / x_true - x_true);
-	}
-	return 0;
+    int T;
+    scanf("%d", &T);
+    for (int i = 1; i <= T; ++i)
+    {
+        double H, h, D;
+        scanf("%lf%lf%lf", &H, &h, &D);
+        double l = (H - h) / H * D;
+        double r = D;
+        double x = sqrt(D * (H - h));
+        fprintf(stderr, "%.3lf %.3lf %.3lf ", l, x, r);
+        double x_true;
+        if (x < l) x_true = l;
+        else if (x > r) x_true = r;
+        else x_true = x;
+        fprintf(stderr, "%.3lf\n", x_true);
+        printf("%.3lf\n", D + H - D * (H - h) / x_true - x_true);
+    }
+    return 0;
 }
 ```
 

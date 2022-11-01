@@ -191,111 +191,111 @@ int Ans[500005];
 
 void add(int x, int y, int z)
 {
-	++cnt;
-	to[cnt] = y;
-	w[cnt] = z;
-	nxt[cnt] = h[x];
-	h[x] = cnt;
+    ++cnt;
+    to[cnt] = y;
+    w[cnt] = z;
+    nxt[cnt] = h[x];
+    h[x] = cnt;
 }
 
 void pre(int x)
 {
-	sz[x] = 1;
-	for (int i = h[x]; i; i = nxt[i])
-	{
-		if (to[i] != fa[x])
-		{
-			fa[to[i]] = x;
-			wc[to[i]] = wc[x] ^ (1 << w[i]); 
-			dep[to[i]] = dep[x] + 1;
-			pre(to[i]);
-			sz[x] = sz[x] + sz[to[i]];
-			if (sz[to[i]] > sz[hson[x]]) hson[x] = to[i];
-		}
-	}
+    sz[x] = 1;
+    for (int i = h[x]; i; i = nxt[i])
+    {
+        if (to[i] != fa[x])
+        {
+            fa[to[i]] = x;
+            wc[to[i]] = wc[x] ^ (1 << w[i]); 
+            dep[to[i]] = dep[x] + 1;
+            pre(to[i]);
+            sz[x] = sz[x] + sz[to[i]];
+            if (sz[to[i]] > sz[hson[x]]) hson[x] = to[i];
+        }
+    }
 }
 
 void clearhs(int x)
 {
-	hs[wc[x]] = 0;
-	for (int i = h[x]; i; i = nxt[i]) if (to[i] != fa[x]) clearhs(to[i]);
+    hs[wc[x]] = 0;
+    for (int i = h[x]; i; i = nxt[i]) if (to[i] != fa[x]) clearhs(to[i]);
 }
 
 int count(int x)
 {
-	int ans = 0;
-	if (hs[wc[x]] != 0) ans = dep[x] + hs[wc[x]];
-	for (int i = 0; i < 22; ++i) if (hs[wc[x] ^ (1 << i)] != 0) ans = max(ans, dep[x] + hs[wc[x] ^ (1 << i)]);
-	for (int i = h[x]; i; i = nxt[i]) if (to[i] != fa[x]) ans = max(ans, count(to[i]));
-	return ans;
+    int ans = 0;
+    if (hs[wc[x]] != 0) ans = dep[x] + hs[wc[x]];
+    for (int i = 0; i < 22; ++i) if (hs[wc[x] ^ (1 << i)] != 0) ans = max(ans, dep[x] + hs[wc[x] ^ (1 << i)]);
+    for (int i = h[x]; i; i = nxt[i]) if (to[i] != fa[x]) ans = max(ans, count(to[i]));
+    return ans;
 }
 
 void update(int x)
 {
-	hs[wc[x]] = max(hs[wc[x]], dep[x]);
-	for (int i = h[x]; i; i = nxt[i]) if (to[i] != fa[x]) update(to[i]);
+    hs[wc[x]] = max(hs[wc[x]], dep[x]);
+    for (int i = h[x]; i; i = nxt[i]) if (to[i] != fa[x]) update(to[i]);
 }
 
 void solve(int x)
 {
-	Ans[x] = dep[x] * 2;
-	if (hson[x])
-	{
-		for (int i = h[x]; i; i = nxt[i])
-		{
-			if (to[i] != fa[x] && to[i] != hson[x])
-			{
-				solve(to[i]);
-				clearhs(to[i]);
-			}
-		}
-		solve(hson[x]);
-		if (hs[wc[x]] != 0) Ans[x] = max(Ans[x], dep[x] + hs[wc[x]]);
-		for (int i = 0; i < 22; ++i) if (hs[wc[x] ^ (1 << i)] != 0) Ans[x] = max(Ans[x], dep[x] + hs[wc[x] ^ (1 << i)]);
-		hs[wc[x]] = max(hs[wc[x]], dep[x]);
-		for (int i = h[x]; i; i = nxt[i])
-		{
-			if (to[i] != fa[x] && to[i] != hson[x])
-			{
-				Ans[x] = max(Ans[x], count(to[i]));
-				update(to[i]);
-			}
-		}
- 	}
- 	else hs[wc[x]] = dep[x];
- 	Ans[x] = Ans[x] - dep[x] * 2;
+    Ans[x] = dep[x] * 2;
+    if (hson[x])
+    {
+        for (int i = h[x]; i; i = nxt[i])
+        {
+            if (to[i] != fa[x] && to[i] != hson[x])
+            {
+                solve(to[i]);
+                clearhs(to[i]);
+            }
+        }
+        solve(hson[x]);
+        if (hs[wc[x]] != 0) Ans[x] = max(Ans[x], dep[x] + hs[wc[x]]);
+        for (int i = 0; i < 22; ++i) if (hs[wc[x] ^ (1 << i)] != 0) Ans[x] = max(Ans[x], dep[x] + hs[wc[x] ^ (1 << i)]);
+        hs[wc[x]] = max(hs[wc[x]], dep[x]);
+        for (int i = h[x]; i; i = nxt[i])
+        {
+            if (to[i] != fa[x] && to[i] != hson[x])
+            {
+                Ans[x] = max(Ans[x], count(to[i]));
+                update(to[i]);
+            }
+        }
+     }
+     else hs[wc[x]] = dep[x];
+     Ans[x] = Ans[x] - dep[x] * 2;
 }
 
 void dp(int x)
 {
-	for (int i = h[x]; i; i = nxt[i])
-	{
-		if (to[i] != fa[x])
-		{
-			dp(to[i]);
-			Ans[x] = max(Ans[x], Ans[to[i]]);
-		}
-	}
+    for (int i = h[x]; i; i = nxt[i])
+    {
+        if (to[i] != fa[x])
+        {
+            dp(to[i]);
+            Ans[x] = max(Ans[x], Ans[to[i]]);
+        }
+    }
 }
 
 int main()
 {
-	scanf("%d", &n);
-	for (int i = 1; i < n; ++i)
-	{
-		scanf("%d %c", &p, &c);
-		add(p, i + 1, c - 97);
-		add(i + 1, p, c - 97);
-	}
-	
-	dep[1] = 1;
-	pre(1);	
-	solve(1);
-	dp(1);
-	
-	for (int i = 1; i <= n; ++i) printf("%d ", Ans[i]);
-	
-	return 0;
+    scanf("%d", &n);
+    for (int i = 1; i < n; ++i)
+    {
+        scanf("%d %c", &p, &c);
+        add(p, i + 1, c - 97);
+        add(i + 1, p, c - 97);
+    }
+    
+    dep[1] = 1;
+    pre(1);    
+    solve(1);
+    dp(1);
+    
+    for (int i = 1; i <= n; ++i) printf("%d ", Ans[i]);
+    
+    return 0;
 } 
 ```
 

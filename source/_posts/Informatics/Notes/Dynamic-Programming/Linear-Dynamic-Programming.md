@@ -373,7 +373,7 @@ int main()
 我们设 $F_{i,j}$ 表示将前 $i$ 件物品中的若干件装入背包，占用不超过 $j$ 的体积，能得到的价值最大值，那么就有状态转移方程
 $$
 \begin{align}
-	F_{i,j}=\max(F_{i-1,j},F_{i-1,j-v_i}+w_i) \nonumber
+    F_{i,j}=\max(F_{i-1,j},F_{i-1,j-v_i}+w_i) \nonumber
 \end{align}
 $$
 
@@ -415,7 +415,7 @@ int main()
 我们设 $F_{i,j}$ 表示将前 $i$ 件物品中的若干件装入背包，占用不超过 $j$ 的体积，能得到的价值最大值，那么就有状态转移方程
 $$
 \begin{align}
-	F_{i,j}= \max \\{ F_{i-1,j-k \cdot v_i}+k \cdot w_i \  | \  k \in \mathbb{N} \land k \cdot v_i \le j \\} \nonumber
+    F_{i,j}= \max \\{ F_{i-1,j-k \cdot v_i}+k \cdot w_i \  | \  k \in \mathbb{N} \land k \cdot v_i \le j \\} \nonumber
 \end{align}
 $$
 完全背包的空间压缩有一个技巧，只需要将 0/1 背包的内层循环顺序改为从 $1$ 到 $v$ 循环，即可实现 0/1 背包到完全背包的转换，恰好也优化了时间，避免了三层循环。因为 0/1 背包需要保证从上一次外层循环的子结构转移而来，而完全背包从本次外层循环的子结构转移恰好满足取多个物品的要求。
@@ -463,7 +463,7 @@ int main()
 加入第三层循环，遍历当前物品取多少个，则有状态转移方程
 $$
 \begin{align}
-	F_{i,j}= \max \\{ F_{i-1,j-k \cdot v_i}+k \cdot w_i \  | \  k \in \mathbb{N} \land k \cdot v_i \le j \land k \le s_i \\} \nonumber
+    F_{i,j}= \max \\{ F_{i-1,j-k \cdot v_i}+k \cdot w_i \  | \  k \in \mathbb{N} \land k \cdot v_i \le j \land k \le s_i \\} \nonumber
 \end{align}
 $$
 
@@ -509,7 +509,7 @@ int main()
 而为了让拆分出的数任意组合能组合出 $1$ 到 $s_i$ 的所有整数而不超过 $s_i$ ，我们将 $s_i$ 拆分成
 $$
 \begin{align}
-	\sum\limits_{i=0}^{\left\lfloor\log_2(s_i+1)-1\right\rfloor}2^i+r_i
+    \sum\limits_{i=0}^{\left\lfloor\log_2(s_i+1)-1\right\rfloor}2^i+r_i
 \end{align}
 $$
 $r_i$ 是根据具体拆分的余数。
@@ -533,7 +533,7 @@ $r_i$ 是根据具体拆分的余数。
 与 0/1 背包无异，我们设 $F_{i,j,k}$ 表示将前 $i$ 件物品中的若干件装入背包，占用不超过 $j$ 的体积，不超过 $k$ 的重量，能得到的价值最大值，那么就有状态转移方程
 $$
 \begin{align}
-	F_{i,j,k}=\max(F_{i-1,j,k},F_{i-1,j-v_i,k-m_i}+w_i) \nonumber
+    F_{i,j,k}=\max(F_{i-1,j,k},F_{i-1,j-v_i,k-m_i}+w_i) \nonumber
 \end{align}
 $$
 

@@ -88,9 +88,9 @@ int main()
     {
         int i=1,j=i+k;
         for(i,j;j<n*2;i++,j++)
-		    {
-			      in[i][j]=0x7fffffff;
-			      for(int l=i;l<j;l++)
+            {
+                  in[i][j]=0x7fffffff;
+                  for(int l=i;l<j;l++)
             {
                 ax[i][j]=max(ax[i][j],ax[i][l]+ax[l+1][j]+add(i,j));
                 in[i][j]=min(in[i][j],in[i][l]+in[l+1][j]+add(i,j));
@@ -263,20 +263,20 @@ long long n, f[305][305];
 
 int main()
 {
-	scanf("%s", s + 1);
-	n = strlen(s + 1);
-	for (int i = 1; i <= n; ++i)
-		f[i][i] = 1;
+    scanf("%s", s + 1);
+    n = strlen(s + 1);
+    for (int i = 1; i <= n; ++i)
+        f[i][i] = 1;
 
-	for (int d = 2; d <= n; ++d)
-		for (int i = 1, j = d; j <= n; ++i, ++j)
-		    if (s[i] == s[j])
-				for (int k = i + 1; k <= j; ++k)
-					if (s[k] == s[i])
-						f[i][j] = (f[i][j] + f[i + 1][k - 1] * f[k][j]) % MOD;
+    for (int d = 2; d <= n; ++d)
+        for (int i = 1, j = d; j <= n; ++i, ++j)
+            if (s[i] == s[j])
+                for (int k = i + 1; k <= j; ++k)
+                    if (s[k] == s[i])
+                        f[i][j] = (f[i][j] + f[i + 1][k - 1] * f[k][j]) % MOD;
 
-	printf("%d", f[1][n]);
-	return 0;
+    printf("%d", f[1][n]);
+    return 0;
 }
 ```
 
