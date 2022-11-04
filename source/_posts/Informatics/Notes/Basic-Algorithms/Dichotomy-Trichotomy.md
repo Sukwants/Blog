@@ -1,7 +1,7 @@
 ---
 title: 二分法 & 三分法
 tags:
-  - '[I] 二分法 & 三分法'
+  - '[I] 二分法 / 三分法'
 categories:
   - Informatics
   - Notes
