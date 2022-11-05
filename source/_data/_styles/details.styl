@@ -1,0 +1,55 @@
+details:not([open]) {
+    padding-bottom: 0 !important;
+}
+details {
+    display: block !important;
+    padding-top: 0 !important;
+}
+details {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12),0 3px 1px -2px rgba(0,0,0,.2) !important;
+    position: relative !important;
+    margin: 1.5625em 0 !important;
+    padding: 0 .6rem !important;
+    border-left: .2rem solid #448aff !important;
+    border-radius: .1rem !important;
+    font-size: 1rem !important;
+    overflow: auto !important;
+}
+details:not([open])>summary {
+    border-bottom: none !important;
+}
+details summary {
+    padding-right: 2rem !important;
+}
+details>summary {
+    margin: 0 -.6rem !important;
+    padding: .4rem .6rem .4rem 2.625rem !important;
+    border-bottom: .05rem solid rgba(68,138,255,.1) !important;
+    background-color: rgba(68,138,255,.1) !important;
+    font-weight: 700 !important;
+}
+summary {
+    display: block !important;
+    outline: none !important;
+    cursor: pointer !important;
+}
+details > summary::before,
+details > summary::after {
+    font-family: "Font Awesome 6 Free";
+    font-style: normal;
+}
+details>summary:before {
+    position: absolute;
+    left: 1rem;
+    color: #448aff;
+    content: "\f304";
+}
+details>summary:after {
+    position: absolute;
+    right: 1rem;
+    color: rgba(0,0,0,.26);
+    content: "\f078";
+}
+details[open]>summary:after {
+    content: "\f077";
+}
