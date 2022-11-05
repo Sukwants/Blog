@@ -399,3 +399,4 @@ int main()
   - 《信息学奥赛一本通 · 提高篇》 - 《第六部分 第 3 章 因数》
   - [分解质因数 - OI Wiki](https://oi-wiki.org/math/number-theory/pollard-rho/)
   - 《算法导论》 - 《31.9 整数的因子分解》
+  

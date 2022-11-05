@@ -612,7 +612,7 @@ comments:
     #disqus:
     #  text: Load Disqus
     #  order: -1
-    gitalk:
+    #gitalk:
     #  order: -2
 
 # Disqus
@@ -650,7 +650,7 @@ livere_uid: # <your_uid>
 # Gitalk
 # For more information: https://gitalk.github.io
 gitalk:
-  enable: true
+  enable: false
   github_id: Sukwants # GitHub repo owner
   repo: Sukwants.github.io # Repository name to store issues
   client_id: 3447efc4daf6a4009f4c # GitHub Application Client ID
