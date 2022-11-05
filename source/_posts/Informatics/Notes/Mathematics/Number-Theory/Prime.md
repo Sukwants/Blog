@@ -65,6 +65,9 @@ $$
 
 时间复杂度为 $O(k\log n)$，$k$ 为重复操作次数。
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include <cstdio>
 #include <cstdlib>
@@ -107,6 +110,8 @@ int main()
 } 
 ```
 
+</details>
+
 为了让 Miller-Rabin 更加正确，我们引入一个二次探测定理。它是这样描述的，若 $p$ 为一个奇质数，那么使得 $x^2\equiv1\pmod{p}$ 的小于 $p$ 的 $x$ 满足 $x=1$ 或 $x=p-1$。
 
 欲证明此定理，因为 $x^2-1\equiv1\pmod{p}$，所以 $p\mid x^2-1$ 即 $p\mid(x+1)(x-1)$，所以 $p\mid x+1$ 或 $p\mid x-1$，即 $x+1\equiv0\pmod{p}$ 或 $x-1\equiv0\pmod{p}$，又因为 $x<p$，所以 $x=1$ 或 $x=p-1$。
@@ -114,6 +119,9 @@ int main()
 然后我们 Miller-Rabin 的做法是，首先将 $n-1$ 中的因子 $2$ 全部拆出来剩余 $d$，记录因子 $2$ 的数量 $b$。每次随机一个数 $a$，计算 $y=a^d$，然后平方 $b$ 次，在平方过程中如果出现 $y\not\equiv1$ 且 $y\not\equiv n-1$ 而 $y^2\equiv1$ 的情况，则该数不为质数。
 
 在同时使用费马素性测试和二次探测素性测试的时候，我们大约重复调用至少 8 次即可保证正确性，这样就能通过 LOJ 上的题了。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -186,6 +194,8 @@ int main() {
 }
 ```
 
+</details>
+
 ## 质数的筛选
 
 给定一个整数 $n$，求出 $1\sim n$ 之间的所有质数，称为质数的筛选问题。
@@ -247,6 +257,9 @@ $$
 
 Eratosthenes 筛法告诉我们可以通过筛除 $[2,\sqrt{R}]$ 中所有质数的非 $1$ 倍数，因此我们可以先筛出 $[2,\sqrt{R}]$ 的所有质数，然后对每个 $x\in[2,\sqrt{R}]$ 筛除 $i=\left[\left\lceil\frac{L}{x}\right\rceil,\left\lfloor\frac{R}{x}\right\rfloor\right]$ 倍的 $x$ 即可。
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -296,6 +309,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 ## 质因数分解
 

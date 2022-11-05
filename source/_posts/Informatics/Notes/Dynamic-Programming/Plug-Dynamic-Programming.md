@@ -40,37 +40,42 @@ date: 2022-11-01 22:28:28
 
 用轮廓线 DP 做这道题，时间复杂度是 $O(nm2^m)$，优于状压 DP $O(n2^{2m})$。
 
-```cpp
-#include <cstdio>
+<details class="note">
+  <summary>参考代码</summary>
 
-int N, M, T;
-long long f[15][15][1 << 11];
+  ```cpp
+  #include <cstdio>
+  
+  int N, M, T;
+  long long f[15][15][1 << 11];
+  
+  int main()
+  {
+      while (scanf("%d%d", &N, &M) != EOF)
+      {
+          if (N == 0 && M == 0) return 0;
+          T = 1 << M;
+          f[0][M][0] = 1;
+          for (int i = 1; i <= N; ++i)
+          {
+              for (int k = 0; k < T; ++k) f[i][0][k] = f[i - 1][M][k];
+              for (int j = 1; j <= M; ++j)
+              {
+                  for (int k = 0; k < T; ++k)
+                  {
+                      f[i][j][k] = f[i][j - 1][k ^ (1 << j - 1)];
+                      if (j > 1 && !(k & (3 << j - 2)))
+                          f[i][j][k] += f[i][j - 2][k];
+                  }
+              }
+          }
+          printf("%lld\n", f[N][M][0]);
+      }
+      return 0;
+  }
+  ```
 
-int main()
-{
-    while (scanf("%d%d", &N, &M) != EOF)
-    {
-        if (N == 0 && M == 0) return 0;
-        T = 1 << M;
-        f[0][M][0] = 1;
-        for (int i = 1; i <= N; ++i)
-        {
-            for (int k = 0; k < T; ++k) f[i][0][k] = f[i - 1][M][k];
-            for (int j = 1; j <= M; ++j)
-            {
-                for (int k = 0; k < T; ++k)
-                {
-                    f[i][j][k] = f[i][j - 1][k ^ (1 << j - 1)];
-                    if (j > 1 && !(k & (3 << j - 2)))
-                        f[i][j][k] += f[i][j - 2][k];
-                }
-            }
-        }
-        printf("%lld\n", f[N][M][0]);
-    }
-    return 0;
-}
-```
+</details>
 
 ## 插头 DP
 
@@ -111,49 +116,54 @@ int main()
 
 答案在 $f_{n,m,0}$，同样也是此时的轮廓线上不能有任何插头。
 
-```cpp
-#include <cstdio>
+<details class="note">
+  <summary>参考代码</summary>
 
-int T, N, M;
-int a[15][15];
+  ```cpp
+  #include <cstdio>
+  
+  int T, N, M;
+  int a[15][15];
+  
+  long long f[15][15][1 << 12];
+  
+  int main()
+  {
+      scanf("%d", &T);
+      for (int test = 1; test <= T; ++test)
+      {
+          scanf("%d%d", &N, &M);
+          for (int i = 1; i <= N; ++i) for (int j = 1; j <= M; ++j) scanf("%d", &a[i][j]);
+  
+          f[0][M][0] = 1;
+          for (int i = 1; i <= N; ++i)
+          {
+              for (int k = 0; k < (1 << M); ++k) f[i][0][k << 1] = f[i - 1][M][k];
+              for (int j = 1; j <= M; ++j)
+              {
+                  for (int k = 0; k < (1 << M + 1); ++k)
+                  {
+                      if (!a[i][j])
+                      {
+                          if (!(k & (3 << j - 1))) f[i][j][k] = f[i][j - 1][k];
+                          else f[i][j][k] = 0;
+                      }
+                      else
+                      {
+                          if (!!(k & (1 << j - 1)) == !!(k & (1 << j))) f[i][j][k] = f[i][j - 1][k ^ (3 << j - 1)];
+                          else f[i][j][k] = f[i][j - 1][k ^ (3 << j - 1)] + f[i][j - 1][k];
+                      }
+                  }
+              }
+          }
+  
+          printf("Case %d: There are %lld ways to eat the trees.\n", test, f[N][M][0]);
+      }
+      return 0;
+  }
+  ```
 
-long long f[15][15][1 << 12];
-
-int main()
-{
-    scanf("%d", &T);
-    for (int test = 1; test <= T; ++test)
-    {
-        scanf("%d%d", &N, &M);
-        for (int i = 1; i <= N; ++i) for (int j = 1; j <= M; ++j) scanf("%d", &a[i][j]);
-
-        f[0][M][0] = 1;
-        for (int i = 1; i <= N; ++i)
-        {
-            for (int k = 0; k < (1 << M); ++k) f[i][0][k << 1] = f[i - 1][M][k];
-            for (int j = 1; j <= M; ++j)
-            {
-                for (int k = 0; k < (1 << M + 1); ++k)
-                {
-                    if (!a[i][j])
-                    {
-                        if (!(k & (3 << j - 1))) f[i][j][k] = f[i][j - 1][k];
-                        else f[i][j][k] = 0;
-                    }
-                    else
-                    {
-                        if (!!(k & (1 << j - 1)) == !!(k & (1 << j))) f[i][j][k] = f[i][j - 1][k ^ (3 << j - 1)];
-                        else f[i][j][k] = f[i][j - 1][k ^ (3 << j - 1)] + f[i][j - 1][k];
-                    }
-                }
-            }
-        }
-
-        printf("Case %d: There are %lld ways to eat the trees.\n", test, f[N][M][0]);
-    }
-    return 0;
-}
-```
+</details>
 
 显然，对于骨牌覆盖问题，我们也可以稍作修改使其满足插头 DP 的特征。
 
@@ -186,6 +196,9 @@ int main()
   3. 对左插头和上插头均不存在的情况，只有 $()$ 能够新建一对相连的插头，否则状态非法，转移为 $0$。
 
 当然，我们只需要一次合并 $()$ 的情况，这会出现在整张棋盘最后一个非障碍物的格子上，此时我们特殊转移一下即可。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -288,6 +301,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 ## 总结
 

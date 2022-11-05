@@ -112,6 +112,9 @@ $$
 
 以下使用 STL 库的 ``deque`` 容器实现单调队列。
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -182,6 +185,8 @@ int main()
 }
 ```
 
+</details>
+
 因为对于每个 $k$，在单调队列中至多入队出队一次，因此单调队列的入队出队操作均摊时间复杂度是 $O(1)$ 的。总的时间复杂度降到了 $O(T\times \mathit{MaxP})$，降低了一维 $\mathit{MaxP}$。
 
 这里应该就能够理解单调队列这种满足特殊性质的数据结构通过取舍对动态规划的转移产生的优化效果。~~（请给上面的句子划分节奏）~~
@@ -203,6 +208,9 @@ int main()
 
 首先可以写出以下朴素 DP 代码。
 
+<details class="note" open>
+  <summary>参考代码</summary>
+
 ```cpp
 for (int i = 1; i <= m; ++i)
 {
@@ -218,6 +226,8 @@ for (int i = 1; i <= m; ++i)
 }
 ```
 
+</details>
+
 仔细检查状态转移方程，按照上面的方法，将与 $k$ 无关的提到 $\max{}$外面去。
 
 $$
@@ -230,6 +240,9 @@ $$
 $k$ 的取值范围 $[j-d(t_i-t_{i-1}),j+d(t_i-t_{i-1})]$ 单调变化，依然可以在外层循环 $i$ 确定的条件下使用单调队列优化。
 
 以下给出手写双端队列的代码。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <iostream>
@@ -287,6 +300,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 ## 单调队列优化多重背包
 

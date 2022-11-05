@@ -94,6 +94,9 @@ Bézout 定理，译作裴蜀定理，或贝祖定理。对于任意正整数 $a
 
 用 C++ 代码可以这样实现：
 
+<details class="note" open>
+  <summary>参考代码</summary>
+
 ```cpp
 int exgcd(int a, int b, int &x, int &y)
 {
@@ -103,6 +106,8 @@ int exgcd(int a, int b, int &x, int &y)
     return res;
 }
 ```
+
+</details>
 
 这样，我们不知不觉中就证明了裴蜀定理的正确性。我们还因此得出二元一次不定方程 $ax+by=c$ 有解的充要条件是，$(a,b)\mid c$。
 

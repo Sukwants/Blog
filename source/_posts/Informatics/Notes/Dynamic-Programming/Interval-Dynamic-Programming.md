@@ -64,6 +64,9 @@ $$
 
 综上所述，代码如下。
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include<iostream>
 #include<cstdio>
@@ -107,6 +110,8 @@ int main()
 }
 ```
 
+</details>
+
 练习：[[NOIP 2006 提高组] 能量项链](https://www.luogu.com.cn/problem/P1063)
 
 ## T 加分二叉树
@@ -137,6 +142,9 @@ f_{i,j}=\max\{f_{i,k-1}\times f_{k+1,j}+d_k|k\in(i,j)\}
 $$
 
 至于第 2 个问题，相信熟练于线性动态规划的你一定知道如何由最优解还原出最优解的情况吧。代码如下：
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -188,6 +196,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 ## T 金字塔
 
@@ -252,6 +262,9 @@ $$
 
 请看代码：
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include <cstdio>
 #include <cstring>
@@ -279,6 +292,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 p.s.不要忘了模数，调了半天没调出来……
 

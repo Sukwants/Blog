@@ -32,6 +32,9 @@ $$
 $$
 于是可以写出一段十分朴素的代码，即递归解法。
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include <cstdio>
 
@@ -54,6 +57,8 @@ int main()
 }
 ```
 
+</details>
+
 在下面这道题目中，我们可以看出上面这段代码有着不可避免的缺陷。
 
 ### T 菲波那契数列 (2)
@@ -73,6 +78,9 @@ int main()
 我们处理这样的问题，有两种思路，一是记忆化搜索，即计算完 $f(x)$ 后将其存下来；二是变递归为递推，通过已知量主动推出待求量，而不是递归式的层层询问。
 
 这里是记忆化搜索的代码， 跟上一题相差无几。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -98,7 +106,12 @@ int main()
 }
 ```
 
+</details>
+
 至于递推写法，也需要开一个数组存储。每次询问 $f(x)$ 时，如果已经推算过，直接输出，如果没有，则从上次递推结束的地方开始继续递推，推到 $x$ 为止。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -125,6 +138,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 ### 飞跃——动态规划
 
@@ -157,6 +172,9 @@ int main()
 <br>
 
 这道题我们知道， 每一结点都可以从左上方或右下方的结点移动过来， 那么我们若是用 $F_{i, j}$ 表示从 $(1, 1)$ 到 $(i, j)$ 可以取得的最大数字，那么就有 $F_{i,j}=\max(F_{i-1,j},F_{i-1,j-1})+A_{i,j}$ ，这就是数字三角形问题的状态转移方程，其余的不再赘述。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -191,6 +209,8 @@ int main()
 }
 ```
 
+</details>
+
 ### T 摘花生
 
 评测链接：<https://www.acwing.com/problem/content/1017/>
@@ -212,6 +232,9 @@ Hello Kitty 只能向东或向南走，不能向西或向北走。
 我们显然不能因为这道题是矩形而模型是三角形就宣告模型无效，既然这里可以用矩形和三角形比较，那我们也可以说它们都是几何图形。的确如此，这两道题目都是找一条路线单向向前走，不能回头，一边取得数字，求总和最大。
 
 In that case ，我们可以使用类似数字三角形的思想，用相邻的结点转移出每个结点。具体来讲，如果用 $F_{i, j}$ 表示走到坐标 $(i, j)$ 时的最大坐标，那么就有 $F_{i, j} = \max(F_{i - 1, j}, F_{i, j - 1}) + A_{i, j}$ ，这便是核心。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -246,6 +269,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 ### T 最低通行费
 
@@ -303,6 +328,9 @@ int main()
 
 这便是核心思想。
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include <cstdio>
 
@@ -350,6 +378,8 @@ int main()
 }
 ```
 
+</details>
+
 ### 总结
 
 这几道题，~~与其说是数字三角形模型，还不如是摘花生模型，因为它们都是矩形，~~但是无论叫什么模型，它们与数字三角形的解法思想都是一致的。只要对个别问题的特性有特殊的处理，便能统一到这一类问题上来。
@@ -379,6 +409,9 @@ $$
 
 0/1 背包的空间压缩，称为「滚动数组」的优化技巧，要求内层从 $v$ 到 $1$ 循环。
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include <cstdio>
 
@@ -404,6 +437,8 @@ int main()
 }
 ```
 
+</details>
+
 ### T 完全背包问题
 
 测评链接：<https://www.acwing.com/problem/content/3/>
@@ -419,6 +454,9 @@ $$
 \end{align}
 $$
 完全背包的空间压缩有一个技巧，只需要将 0/1 背包的内层循环顺序改为从 $1$ 到 $v$ 循环，即可实现 0/1 背包到完全背包的转换，恰好也优化了时间，避免了三层循环。因为 0/1 背包需要保证从上一次外层循环的子结构转移而来，而完全背包从本次外层循环的子结构转移恰好满足取多个物品的要求。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -446,6 +484,8 @@ int main()
 }
 ```
 
+</details>
+
 ### T 多重背包问题
 
 有 $N$ 种物品和一个容量是 $V$ 的背包。第 $i$ 种物品最多有 $s_i$ 件，每件体积是 $v_i$ ，价值是 $w_i$ 。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。
@@ -466,6 +506,9 @@ $$
     F_{i,j}= \max \\{ F_{i-1,j-k \cdot v_i}+k \cdot w_i \  | \  k \in \mathbb{N} \land k \cdot v_i \le j \land k \le s_i \\} \nonumber
 \end{align}
 $$
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -499,6 +542,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 #### 二进制拆分法
 

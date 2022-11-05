@@ -59,6 +59,9 @@ date: 2022-08-12 18:30:24
 
 这就是上面介绍 DSU on Trees 的基本应用。
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include <cstdio>
 #include <cstring>
@@ -150,6 +153,8 @@ int main()
 }
 ```
 
+<details>
+
 ## T Arpa’s letter-marked tree and Mehrdad’s Dokhtar-kosh paths
 
 题目来源：Codeforces 741D
@@ -172,6 +177,9 @@ int main()
 那么我们改变一下策略，在求解问题的时候，先求解非重子结点的子问题，每次结束清空哈希表，再求解重子结点的子问题，不清空哈希表，接着查询与根结点匹配的结点并将根结点加入哈希表，然后重新对各其余子树查询并加入哈希表。
 
 这就是树上启发式合并。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <iostream>
@@ -298,6 +306,8 @@ int main()
     return 0;
 } 
 ```
+
+</details>
 
 ## 继承者法则
 

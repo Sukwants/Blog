@@ -75,6 +75,9 @@ $$
 
 代码。
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include <cstdio>
 #include <algorithm>
@@ -159,6 +162,8 @@ int main()
 } 
 ```
 
+</details>
+
 ## Tarjan 算法
 
 解决 LCA 的 Tarjan 算法是伟大的计算机科学家 Tarjan 发明的离线算法。
@@ -174,6 +179,9 @@ int main()
 这里并查集的合并比较特殊，我们进行合并的时候，一定是将独立并查集的一棵树的树根合并到父结点上去，因此直接改 ``f`` 数组即可而不用先调用 ``find(x)`` 函数，并且不能够按秩合并。
 
 还需注意的是，洛谷上板子题的测试点 #11 包含 $a$ 与 $b$ 相同的询问，因此需要加一个特判。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -255,6 +263,8 @@ int main()
     return 0;
 } 
 ```
+
+</details>
 
 ## 转化为欧拉序列上的 RMQ 问题
 

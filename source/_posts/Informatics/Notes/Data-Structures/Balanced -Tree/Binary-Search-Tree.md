@@ -23,6 +23,9 @@ date: 2022-10-30 15:30:29
 
 ### 插入
 
+<details class="note" open>
+  <summary>参考代码</summary>
+
 ```cpp
 void insert(int x)
 {
@@ -52,7 +55,12 @@ void insert(int x)
 }
 ```
 
+</details>
+
 ### 删除
+
+<details class="note" open>
+  <summary>参考代码</summary>
 
 ```cpp
 void erase(int x)
@@ -95,7 +103,12 @@ void erase(int x)
 }
 ```
 
+</details>
+
 ### 查询指定数的排名
+
+<details class="note" open>
+  <summary>参考代码</summary>
 
 ```cpp
 int rank(int x)
@@ -117,7 +130,12 @@ int rank(int x)
 }
 ```
 
+</details>
+
 ### 查询指定排名的数
+
+<details class="note" open>
+  <summary>参考代码</summary>
 
 ```cpp
 int at(int x)
@@ -132,7 +150,12 @@ int at(int x)
 }
 ```
 
+</details>
+
 ### 查询前驱
+
+<details class="note" open>
+  <summary>参考代码</summary>
 
 ```cpp
 int pre(int x)
@@ -154,7 +177,12 @@ int pre(int x)
 }
 ```
 
+</details>
+
 ### 查询后继
+
+<details class="note" open>
+  <summary>参考代码</summary>
 
 ```cpp
 int suc(int x)
@@ -176,6 +204,8 @@ int suc(int x)
 }
 ```
 
+</details>
+
 ## 树排序
 
 树排序即，将元素依次插入二叉查找树，最后中序遍历输出。树排序是稳定的排序。
@@ -187,6 +217,9 @@ int suc(int x)
 对于确定的数集，二叉查找树的形态不一定确定。在 Treap 和 Splay 等平衡树中，我们会用到旋转操作来改变二叉查找树的形态。有时候会将旋转操作分为左旋和右旋，我们这里统一为，将一个结点旋转到它父结点的位置上。
 
 {% asset_img rotate.png '"" "旋转"' %}
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 void rotate(int x)
@@ -210,15 +243,17 @@ void rotate(int x)
 }
 ```
 
+</details>
+
 ## 平衡树
 
 在某种特定情况下，二叉查找树会退化成一条链，被卡到 $O(n^2)$，我们为了使它保持「平衡」，让时间复杂度保持在 $O(n\log n)$ 的水平，发明了种种平衡树。
 
-![【模板】普通平衡树](https://loj.ac/p/104)
+[【模板】普通平衡树](https://loj.ac/p/104)
 
-![【模板】文艺平衡树](https://loj.ac/p/105)
+[【模板】文艺平衡树](https://loj.ac/p/105)
 
-![【模板】二逼平衡树](https://loj.ac/p/106)
+[【模板】二逼平衡树](https://loj.ac/p/106)
 
 ## 总结
 

@@ -22,6 +22,9 @@ date: 2022-10-25 23:49:03
 
 AC 自动机，常常被解释为在 Trie 树上的 KMP，于是我写出了这样的代码。
 
+<details class="note" open>
+  <summary>参考代码</summary>
+
 ```cpp
 p[0] = -1;
 for (int i = 0; i < 26; i++) if (ch[0][i]) q[++r] = ch[0][i];
@@ -43,6 +46,8 @@ for (int i = 1, j = 0; t[i]; i++)
 }
 ```
 
+</details>
+
 但是它的复杂度可能就假掉了，我们 KMP 的时候是线性的复杂度，是从指针移动的角度思考的，而在 Trie 树上，指针移动却并不能这么简单地思考。
 
 ## 路标
@@ -50,6 +55,9 @@ for (int i = 1, j = 0; t[i]; i++)
 我们希望不通过 ``while`` 就能够 $O(1)$ 的转移。具体地，我们通过处理出当前串再追加一个字母能够继续匹配的最长串。我们就对 $26$ 个中每一个字母都考虑，当前串如果有这个字母的儿子，那么就直接指向这个儿子，否则指向不断跳 $p$ 的过程中能够继续匹配的最长串。
 
 我们的 $p$ 数组和新的跳转数组此时都能够 $O(1)$ 或者说 $O(26)$ 地得到。
+
+<details class="note" open>
+  <summary>参考代码</summary>
 
 ```cpp
 p[0] = 1;
@@ -63,6 +71,8 @@ while (f <= r)
         else q[++r] = ch[x][i];
 }
 ```
+
+</details>
 
 接下来我们思考，有时候一个串出现时并不是作为最长串，因此我们需要将能够跳到这个串的答案都累计上来。具体做法，倒序扫描手写队列，将 $Ans_{p_i}$ 加上 $Ans_i$。
 
@@ -79,6 +89,9 @@ for (int i = r; i >= 1; i--) Ans[p[q[i]]] += Ans[q[i]];
 评测链接：<https://www.luogu.com.cn/problem/P3808>
 
 （其实是假的）
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -149,7 +162,12 @@ int main()
 }
 ```
 
+</details>
+
 ### T 【模板】AC 自动机（加强版）
+
+<details class="note">
+  <summary>参考代码</summary>
 
 评测链接：<https://www.luogu.com.cn/problem/P3796>
 
@@ -233,9 +251,14 @@ int main()
 }
 ```
 
+</details>
+
 ### T 【模板】AC 自动机（二次加强版）
 
 评测链接：<https://www.luogu.com.cn/problem/P5357>
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -296,6 +319,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 ## 地图
 

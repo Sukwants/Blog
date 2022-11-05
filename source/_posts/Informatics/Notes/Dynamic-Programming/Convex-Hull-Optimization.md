@@ -133,6 +133,9 @@ $\\sum_\\limits{k=j+1}^iC_k$ 可以直接用前缀和 $S_i-S_j$ 化解。
 
 写出来朴素算法的核心代码如下。
 
+<details class="note" open>
+  <summary>参考代码</summary>
+
 ```cpp
 for (int i = 1; i <= n; ++i)
 {
@@ -143,6 +146,8 @@ for (int i = 1; i <= n; ++i)
     }
 }
 ```
+
+</details>
 
 接下来尝试优化。
 
@@ -189,6 +194,9 @@ $$
 我们需要做的就只是，对于外层循环每一次的 $i$，凭借斜率 $2(i-1+S_i-L)$ 求出答案，然后将二元组 $(i+S_i,f_i+(i+S_i)^2)$ 加到平面上，如果需要更新凸包，就更新。
 
 这道题有些特殊地方，比如加点 $(i+S_i,f_i+(i+S_i)^2)$ 的横坐标 $(i+S_i)$ 明显是单增的。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <iostream>
@@ -257,6 +265,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 这就是斜率优化，外国人称为 Convex Hull Optimization 凸包优化。
 

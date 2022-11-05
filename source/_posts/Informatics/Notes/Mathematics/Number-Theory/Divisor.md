@@ -228,6 +228,9 @@ Pollard Rho 大数分解算法直接解决了分解出一个大合数的一个�
 
 我们判断无解退出过后，就再随一个 $C$ 进行一次 Pollard Rho。还需要注意的是，这样写的 Pollard Rho 会在 $N=4$ 的时候分解不出结果，此时需要特判。
 
+<details class="note" open>
+  <summary>参考代码</summary>
+
 ```cpp
 long long Pollard_Rho(long long x)
 {
@@ -247,9 +250,14 @@ long long Pollard_Rho(long long x)
 }
 ```
 
+</details>
+
 ### 倍增优化
 
 我们回顾刚才的朴素方法和 Floyd 判环写法。为了防止 $\gcd$ 调用次数过多消耗时间，我们可以累计因子，过一段时间统一与 $N$ 进行一次 $\gcd$。具体地说，在倍增方法的基础上，倍增每次都先将 $x_t-x_s$ 乘起来，之后将乘积与 $N$ 做一次 $\gcd$。而同时为了防止倍增区间增长地过长而耗费我们过多时间，我们需要适时地计算一下 $\gcd$，一般来说每隔 $127$ 次计算一次。在倍增过程中，如果出现 $x_s=x_t$ 即说明 $s,t$ 均已进入环部且完成了循环节，是时候退出了。 
+
+<details class="note" open>
+  <summary>参考代码</summary>
 
 ```cpp
 long long Pollard_Rho(long long x)
@@ -275,6 +283,8 @@ long long Pollard_Rho(long long x)
 }
 ```
 
+</details>
+
 ### T 【模板】Pollard-Rho算法
 
 评测链接：<https://www.luogu.com.cn/problem/P4718>
@@ -282,6 +292,9 @@ long long Pollard_Rho(long long x)
 我们将 Pollard-Rho 用于分解质因数时，首先 Miller-Rabin 判断该数是否为质数，如果为质数直接返回，如果为合数则用 Pollard-Rho 分解出非平凡质因子过后递归处理。
 
 在本题中，需要用到倍增优化写法的 Pollard-Rho，用 Floyd 判环写法的会 TEL 93。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -385,6 +398,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 是否感觉 Pollard Rho 听得晕乎乎的呢？~~别问，问就是玄学。~~有一句古话叫做：「学而不思则罔。」
 

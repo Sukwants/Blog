@@ -62,6 +62,9 @@ $$
 
 代码如下。
 
+<details class="note">
+  <summary>参考代码</summary>
+
 ```cpp
 #include <cstdio>
 
@@ -117,6 +120,8 @@ int main()
 }
 ```
 
+</details>
+
 ## T 有依赖的背包问题
 
 评测链接：<https://www.acwing.com/problem/content/10/>
@@ -150,6 +155,9 @@ int main()
 事实上，树上背包退化成只有一级依赖关系后，就成为了变形的分组背包。这也与树上背包与分组背包解决方法本质上一致相符合。
 
 代码如下，以下代码在由子问题推导的时候采取了 0/1 背包的**滚动数组**空间压缩技巧。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -207,6 +215,8 @@ int main()
 }
 ```
 
+</details>
+
 ## 换根 DP
 
 换根 DP，又叫换根法，是适用于树形 DP 的一种辅助技巧。
@@ -259,6 +269,9 @@ int main()
 *该路径指的是当前节点到根节点的路径。
 
 总之，第 1 次 DFS 进行 DP 并明确父子关系，第 2 次 DFS 进行计算统计。
+
+<details class="note">
+  <summary>参考代码</summary>
 
 ```cpp
 #include <cstdio>
@@ -339,6 +352,8 @@ int main()
     return 0;
 }
 ```
+
+</details>
 
 ## 总结
 
