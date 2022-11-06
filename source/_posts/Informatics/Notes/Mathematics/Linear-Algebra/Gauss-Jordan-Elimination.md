@@ -116,9 +116,7 @@ $$
 
 在具体实现中，有可能还会出现第 $i$ 行的第 $i$ 个系数为 $0$ 的情况，因此这个时候我们需要找到一个第 $i$ 个元的系数非零的行，将其作为第 $i$ 行消去其他行的第 $i$ 个未知数。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cmath>
@@ -173,8 +171,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 约旦消元法
 
@@ -182,9 +179,7 @@ int main()
 
 其基本步骤是，对第 $i$ 个未知数，找到一个该未知数的系数非 $0$ 且未被选过的行，用它去消除其他所有行的该元，不止是第 $j\in[i+1,n]$ 行。最后不用回带，直接就得出了每个未知数的解。正确性显然，因为处理第 $i$ 个元的时候，选定的行中第 $j\in[1,i-1]$ 个系数一定为 $0$，因此对其他行并不会产生这些系数的影响。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cmath>
@@ -237,8 +232,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 时空复杂度
 

@@ -65,9 +65,7 @@ $$
 
 时间复杂度为 $O(k\log n)$，$k$ 为重复操作次数。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cstdlib>
@@ -109,8 +107,7 @@ int main()
     return 0;
 } 
 ```
-
-</details>
+{% endcontentbox %}
 
 为了让 Miller-Rabin 更加正确，我们引入一个二次探测定理。它是这样描述的，若 $p$ 为一个奇质数，那么使得 $x^2\equiv1\pmod{p}$ 的小于 $p$ 的 $x$ 满足 $x=1$ 或 $x=p-1$。
 
@@ -120,9 +117,7 @@ int main()
 
 在同时使用费马素性测试和二次探测素性测试的时候，我们大约重复调用至少 8 次即可保证正确性，这样就能通过 LOJ 上的题了。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <ctime>
@@ -193,8 +188,7 @@ int main() {
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 质数的筛选
 
@@ -257,9 +251,7 @@ $$
 
 Eratosthenes 筛法告诉我们可以通过筛除 $[2,\sqrt{R}]$ 中所有质数的非 $1$ 倍数，因此我们可以先筛出 $[2,\sqrt{R}]$ 的所有质数，然后对每个 $x\in[2,\sqrt{R}]$ 筛除 $i=\left[\left\lceil\frac{L}{x}\right\rceil,\left\lfloor\frac{R}{x}\right\rfloor\right]$ 倍的 $x$ 即可。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -309,8 +301,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 质因数分解
 

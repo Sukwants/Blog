@@ -22,9 +22,7 @@ date: 2022-10-25 23:49:03
 
 AC 自动机，常常被解释为在 Trie 树上的 KMP，于是我写出了这样的代码。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:failure title:错误代码 open %}
 ```cpp
 p[0] = -1;
 for (int i = 0; i < 26; i++) if (ch[0][i]) q[++r] = ch[0][i];
@@ -45,8 +43,7 @@ for (int i = 1, j = 0; t[i]; i++)
     ans[j]++;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 但是它的复杂度可能就假掉了，我们 KMP 的时候是线性的复杂度，是从指针移动的角度思考的，而在 Trie 树上，指针移动却并不能这么简单地思考。
 
@@ -56,9 +53,7 @@ for (int i = 1, j = 0; t[i]; i++)
 
 我们的 $p$ 数组和新的跳转数组此时都能够 $O(1)$ 或者说 $O(26)$ 地得到。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 p[0] = 1;
 for (int i = 0; i < 26; i++) if (ch[0][i]) q[++r] = ch[0][i];
@@ -71,8 +66,7 @@ while (f <= r)
         else q[++r] = ch[x][i];
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 接下来我们思考，有时候一个串出现时并不是作为最长串，因此我们需要将能够跳到这个串的答案都累计上来。具体做法，倒序扫描手写队列，将 $Ans_{p_i}$ 加上 $Ans_i$。
 
@@ -90,9 +84,7 @@ for (int i = r; i >= 1; i--) Ans[p[q[i]]] += Ans[q[i]];
 
 （其实是假的）
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cstring>
@@ -161,14 +153,11 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### T 【模板】AC 自动机（加强版）
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 评测链接：<https://www.luogu.com.cn/problem/P3796>
 
 ```cpp
@@ -250,16 +239,13 @@ int main()
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### T 【模板】AC 自动机（二次加强版）
 
 评测链接：<https://www.luogu.com.cn/problem/P5357>
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -319,8 +305,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 地图
 

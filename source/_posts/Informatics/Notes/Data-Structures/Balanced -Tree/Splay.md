@@ -25,9 +25,7 @@ Splay 基于 Splay 操作，一次 Splay 操作的目标是将 $x$ 转为 $k$ �
 
 Splay 要求，一次旋转两级，如果当前结点与父结点作为儿子的属性相同，则先旋转父结点，再旋转 $x$；否则，旋转两次 $x$。别问，问就是玄学。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 void splay(int x, int k)
 {
@@ -39,16 +37,13 @@ void splay(int x, int k)
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 插入
 
 通过二叉查找树的插入方式，插入过后将新增结点转到根节点。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 void insert(int x)
 {
@@ -59,8 +54,7 @@ void insert(int x)
     splay(ch[idx][x > dt[idx]], 0);
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 删除
 
@@ -68,9 +62,7 @@ void insert(int x)
 
 合并的做法是，将左子树的最大结点转到左子树的根节点，并将其右儿子设为右子树，最后将该结点设为 Splay 的根结点。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 void erase(int x)
 {
@@ -92,16 +84,13 @@ void erase(int x)
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 查询指定数的排名
 
 将对应结点转到根结点，查询左子树大小。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 int rank(int x)
 {
@@ -112,16 +101,13 @@ int rank(int x)
     return sz[ch[idx][0]] + (dt[idx] < x) + 1;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 转出翻转
 
 Splay 实现文艺平衡树的操作是，将区间的前驱转到根结点，后继转到根结点的右儿子，那么根结点右儿子的左子树即为这个区间，打上 Lazy Tag。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <algorithm>
@@ -224,8 +210,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 转至宁静
 

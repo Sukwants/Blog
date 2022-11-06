@@ -71,9 +71,7 @@ Such is 虚树，Virtual Tree，顾名思义，有别于题目中直接给出的
 
 还需要注意的是，每次虚树所用到的数组不要用 ``memset`` 清空，这样时间消耗大，最好将修改过的下标存下来后边再改回 0。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -285,8 +283,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 算法分析
 

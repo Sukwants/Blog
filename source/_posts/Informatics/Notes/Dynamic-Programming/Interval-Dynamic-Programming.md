@@ -64,9 +64,7 @@ $$
 
 综上所述，代码如下。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include<iostream>
 #include<cstdio>
@@ -109,8 +107,7 @@ int main()
     return 0;  
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 练习：[[NOIP 2006 提高组] 能量项链](https://www.luogu.com.cn/problem/P1063)
 
@@ -143,9 +140,7 @@ $$
 
 至于第 2 个问题，相信熟练于线性动态规划的你一定知道如何由最优解还原出最优解的情况吧。代码如下：
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -196,8 +191,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## T 金字塔
 
@@ -262,9 +256,7 @@ $$
 
 请看代码：
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cstring>
@@ -292,8 +284,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 p.s.不要忘了模数，调了半天没调出来……
 

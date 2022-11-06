@@ -40,42 +40,39 @@ date: 2022-11-01 22:28:28
 
 用轮廓线 DP 做这道题，时间复杂度是 $O(nm2^m)$，优于状压 DP $O(n2^{2m})$。
 
-<details class="note">
-  <summary>参考代码</summary>
+{% contentbox type:success title:参考代码 %}
+```cpp
+#include <cstdio>
 
-  ```cpp
-  #include <cstdio>
-  
-  int N, M, T;
-  long long f[15][15][1 << 11];
-  
-  int main()
-  {
-      while (scanf("%d%d", &N, &M) != EOF)
-      {
-          if (N == 0 && M == 0) return 0;
-          T = 1 << M;
-          f[0][M][0] = 1;
-          for (int i = 1; i <= N; ++i)
-          {
-              for (int k = 0; k < T; ++k) f[i][0][k] = f[i - 1][M][k];
-              for (int j = 1; j <= M; ++j)
-              {
-                  for (int k = 0; k < T; ++k)
-                  {
-                      f[i][j][k] = f[i][j - 1][k ^ (1 << j - 1)];
-                      if (j > 1 && !(k & (3 << j - 2)))
-                          f[i][j][k] += f[i][j - 2][k];
-                  }
-              }
-          }
-          printf("%lld\n", f[N][M][0]);
-      }
-      return 0;
-  }
-  ```
+int N, M, T;
+long long f[15][15][1 << 11];
 
-</details>
+int main()
+{
+    while (scanf("%d%d", &N, &M) != EOF)
+    {
+        if (N == 0 && M == 0) return 0;
+        T = 1 << M;
+        f[0][M][0] = 1;
+        for (int i = 1; i <= N; ++i)
+        {
+            for (int k = 0; k < T; ++k) f[i][0][k] = f[i - 1][M][k];
+            for (int j = 1; j <= M; ++j)
+            {
+                for (int k = 0; k < T; ++k)
+                {
+                    f[i][j][k] = f[i][j - 1][k ^ (1 << j - 1)];
+                    if (j > 1 && !(k & (3 << j - 2)))
+                        f[i][j][k] += f[i][j - 2][k];
+                }
+            }
+        }
+        printf("%lld\n", f[N][M][0]);
+    }
+    return 0;
+}
+```
+{% endcontentbox %}
 
 ## 插头 DP
 
@@ -116,9 +113,7 @@ date: 2022-11-01 22:28:28
 
 答案在 $f_{n,m,0}$，同样也是此时的轮廓线上不能有任何插头。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
   ```cpp
   #include <cstdio>
   
@@ -162,8 +157,7 @@ date: 2022-11-01 22:28:28
       return 0;
   }
   ```
-
-</details>
+{% endcontentbox %}
 
 显然，对于骨牌覆盖问题，我们也可以稍作修改使其满足插头 DP 的特征。
 
@@ -197,9 +191,7 @@ date: 2022-11-01 22:28:28
 
 当然，我们只需要一次合并 $()$ 的情况，这会出现在整张棋盘最后一个非障碍物的格子上，此时我们特殊转移一下即可。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -301,8 +293,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 总结
 

@@ -69,9 +69,7 @@ $$
 
 一块花布条，里面有些图案，另有一块直接可用的小饰条，里面也有一些图案。对于给定的花布条和小饰条，计算一下能从花布条中尽可能剪出几块小饰条来呢？
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -115,8 +113,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 KMP 的核心在于：利用已知信息减少重复计算的时间。
 
@@ -169,9 +166,7 @@ $S = ABC$，$S = ABABC$，$S = ABAB \ldots ABC$，其中 $A$，$B$，$C$ 均是�
 
 当然如果你说孩子没事做，「维护出现奇数次字符数量小于等于 $i$ 的 $A$ 的数量」也可以用树状数组做到 $O(\log 26)$）（魔法披风）。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <iostream> 
 #include <cstdio>
@@ -233,8 +228,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 点灯
 
@@ -254,9 +248,7 @@ Z 算法（扩展 KMP）解决这类问题，有字符串 $T$，对于任何 $i\
 
 需要注意的是 $z(1)$ 需要单独处理，并不能计入 $l,r$ 的更新，不然每一次都会 $z(i)=\min\\{z(i),|T|-i+1\\}$，显然正确又显然不正确。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 l = 0, r = 0;
 for (int i = 2; i <= m; i++)
@@ -266,8 +258,7 @@ for (int i = 2; i <= m; i++)
     if (i + z[i] - 1 > r) l = i, r = i + z[i] - 1;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 光舞
 
@@ -290,9 +281,7 @@ for (int i = 2; i <= m; i++)
 
 并且这里并不需要把 $p(1)$ 单独拎出来处理，因为 $z(i)$ 已经得出结果了。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -338,8 +327,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 Z 算法的思想事实上和 Manacher 比较类似，采取已经处理出的右端点最右的区间带来的特性进行简化，并且只有当初始即扩展到右端点的时候右边界才有可能扩展。
 

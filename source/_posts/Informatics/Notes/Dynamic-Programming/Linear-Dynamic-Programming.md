@@ -32,9 +32,7 @@ $$
 $$
 于是可以写出一段十分朴素的代码，即递归解法。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -56,8 +54,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 在下面这道题目中，我们可以看出上面这段代码有着不可避免的缺陷。
 
@@ -79,9 +76,7 @@ int main()
 
 这里是记忆化搜索的代码， 跟上一题相差无几。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -105,14 +100,11 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 至于递推写法，也需要开一个数组存储。每次询问 $f(x)$ 时，如果已经推算过，直接输出，如果没有，则从上次递推结束的地方开始继续递推，推到 $x$ 为止。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -138,8 +130,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 飞跃——动态规划
 
@@ -173,9 +164,7 @@ int main()
 
 这道题我们知道， 每一结点都可以从左上方或右下方的结点移动过来， 那么我们若是用 $F_{i, j}$ 表示从 $(1, 1)$ 到 $(i, j)$ 可以取得的最大数字，那么就有 $F_{i,j}=\max(F_{i-1,j},F_{i-1,j-1})+A_{i,j}$ ，这就是数字三角形问题的状态转移方程，其余的不再赘述。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cstring>
@@ -208,8 +197,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### T 摘花生
 
@@ -233,9 +221,7 @@ Hello Kitty 只能向东或向南走，不能向西或向北走。
 
 In that case ，我们可以使用类似数字三角形的思想，用相邻的结点转移出每个结点。具体来讲，如果用 $F_{i, j}$ 表示走到坐标 $(i, j)$ 时的最大坐标，那么就有 $F_{i, j} = \max(F_{i - 1, j}, F_{i, j - 1}) + A_{i, j}$ ，这便是核心。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -269,8 +255,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### T 最低通行费
 
@@ -328,9 +313,7 @@ int main()
 
 这便是核心思想。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -377,8 +360,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 总结
 
@@ -409,9 +391,7 @@ $$
 
 0/1 背包的空间压缩，称为「滚动数组」的优化技巧，要求内层从 $v$ 到 $1$ 循环。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -436,8 +416,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### T 完全背包问题
 
@@ -455,9 +434,7 @@ $$
 $$
 完全背包的空间压缩有一个技巧，只需要将 0/1 背包的内层循环顺序改为从 $1$ 到 $v$ 循环，即可实现 0/1 背包到完全背包的转换，恰好也优化了时间，避免了三层循环。因为 0/1 背包需要保证从上一次外层循环的子结构转移而来，而完全背包从本次外层循环的子结构转移恰好满足取多个物品的要求。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -483,8 +460,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### T 多重背包问题
 
@@ -507,9 +483,7 @@ $$
 \end{align}
 $$
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -542,8 +516,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 #### 二进制拆分法
 

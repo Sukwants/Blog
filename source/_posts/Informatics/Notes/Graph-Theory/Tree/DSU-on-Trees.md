@@ -59,9 +59,7 @@ date: 2022-08-12 18:30:24
 
 这就是上面介绍 DSU on Trees 的基本应用。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cstring>
@@ -152,8 +150,7 @@ int main()
     return 0;
 }
 ```
-
-<details>
+{% endcontentbox %}
 
 ## T Arpa’s letter-marked tree and Mehrdad’s Dokhtar-kosh paths
 
@@ -178,9 +175,7 @@ int main()
 
 这就是树上启发式合并。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -306,8 +301,7 @@ int main()
     return 0;
 } 
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 继承者法则
 

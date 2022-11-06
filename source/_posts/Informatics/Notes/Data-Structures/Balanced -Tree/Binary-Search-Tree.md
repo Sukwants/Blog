@@ -23,9 +23,7 @@ date: 2022-10-30 15:30:29
 
 ### 插入
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 void insert(int x)
 {
@@ -54,14 +52,11 @@ void insert(int x)
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 删除
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 void erase(int x)
 {
@@ -102,14 +97,11 @@ void erase(int x)
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 查询指定数的排名
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 int rank(int x)
 {
@@ -129,14 +121,11 @@ int rank(int x)
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 查询指定排名的数
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 int at(int x)
 {
@@ -149,14 +138,11 @@ int at(int x)
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 查询前驱
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 int pre(int x)
 {
@@ -176,14 +162,11 @@ int pre(int x)
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 查询后继
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 int suc(int x)
 {
@@ -203,8 +186,7 @@ int suc(int x)
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 树排序
 
@@ -218,9 +200,7 @@ int suc(int x)
 
 {% asset_img rotate.png '"" "旋转"' %}
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 void rotate(int x)
 {
@@ -242,8 +222,7 @@ void rotate(int x)
     sz[x] = sz[ch[x][0]] + sz[ch[x][1]] + 1;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 平衡树
 

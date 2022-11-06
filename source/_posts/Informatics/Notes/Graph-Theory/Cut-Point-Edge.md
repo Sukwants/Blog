@@ -70,9 +70,7 @@ Tarjan 算法中，每个连通分量的第一个结点，例如 $1$ 号结点�
 
 可以证明，不会有所有的点双连通分量均与两个及以上的割点相连，因此答案不会为 0。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cstring>
@@ -214,8 +212,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 结语
 

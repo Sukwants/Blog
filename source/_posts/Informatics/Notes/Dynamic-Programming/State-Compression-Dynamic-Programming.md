@@ -142,9 +142,7 @@ $$
 
 扫描状态的方法，只用将 $[0,1<<n)$ 的所有整数扫描一遍即可。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cmath>
@@ -192,8 +190,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 通过一道题的做题经验我们就可以发现，状压 DP 需要扫描每一行的所有合法方案，虽然有的时候可以预处理，但是这种类似于排列组合的枚举方法都已经接近搜索了。
 
@@ -229,9 +226,7 @@ int main()
 
 代码如下。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -279,8 +274,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 这道题还可以用矩阵快速幂加速（真的吗？）~~，这里留给读者自己思考~~。
 
@@ -316,9 +310,7 @@ CE 数码公司开发了一种名为自动涂色机（APM）的产品。它能�
 
 因此通过枚举上一次的最后涂色区域，比较后进行转移。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cstring>
@@ -398,8 +390,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 还有一种思路，不用逐个区域转移，每次枚举涂色的颜色，将这个颜色的当前可以涂色的区域都涂色。这种思路会有一个坑，如果有两个相同颜色的区域上下相邻，则需要保证上面的区域先被扫描到，这样才能保证下面的区域被正确判断为可以涂色。因此需要事先排序。
 

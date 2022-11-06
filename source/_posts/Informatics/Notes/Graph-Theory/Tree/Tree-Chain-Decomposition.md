@@ -121,9 +121,7 @@ $$
 
 在过程中，每一个 $x,y$ 都是从 $x_0,y_0$ 到根节点的路径中属于所属的重链的结点中深度最大的一个，因此到 $\mathit{top}_x=\mathit{top}_y$ 的时候，$x,y$ 中更大的一个即为 LCA，此时再处理或询问剩下的一段即可。由此可见，树链剖分还可以用来求 LCA。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -290,8 +288,7 @@ int main()
     return 0;
 } 
 ```
-
-</details>
+{% endcontentbox %}
 
 重链剖分预处理的时间复杂度为 $\mathrm{O}(n)$，单次操作的时间复杂度为 $\mathit{O}(\log^2n)$。
 

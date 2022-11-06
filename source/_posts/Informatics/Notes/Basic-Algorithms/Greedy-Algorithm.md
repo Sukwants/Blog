@@ -212,9 +212,7 @@ $$
 
 设有 $n$ 个活动的集合 $E=\{1,2,...,n\}$，其中每个活动都要求使用同一资源，如演讲会场等，而在同一时间内只有一个活动能使用这一资源。每个活动 $i$ 都有一个要求使用该资源的起始时间 $s_i$ 和一个结束时间 $f_i$，且 $s_i<f_i$。如果选择了活动 $i$，则它在时间区间 $[s_i,f_i)$ 内占用资源。若区间 $[s_i,f_i)$ 与区间 $[s_j,f_j)$ 不相交，则称活动 $i$ 与活动 $j$ 是相容的。也就是说，当 $f_i\leq s_j$ 或 $f_j\leq s_i$ 时，活动 $i$ 与活动 $j$ 相容。选择出由互相兼容的活动组成的最大集合。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <algorithm>
@@ -247,8 +245,7 @@ int main()
     return 0;
 }
 ```
-
-<details>
+{% endcontentbox %}
 
 ### 区间选点问题
 
@@ -266,9 +263,7 @@ int main()
 
 （其实树状数组就是~~画蛇添脚脚（王之宏语）~~画龙点睛）
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <algorithm>
@@ -335,8 +330,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 区间覆盖问题
 
@@ -356,9 +350,7 @@ int main()
 
 请问：如果要同时浇灌整块草坪，最少需要打开多少个喷头？
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cmath>
@@ -422,8 +414,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 带限期和罚款的单位时间任务调度问题
 
@@ -457,9 +448,7 @@ int main()
 
 （我当时码风那么独流（毒瘤）的吗，要借鉴并查集的思想来简化查询最后一个可用的单位时间）
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <algorithm>
@@ -500,8 +489,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 流水作业调度问题
 
@@ -580,9 +568,7 @@ $3^\circ$ 当 $a_i\leq b_i,a_j\geq b_j$ 时，有 $\\min\\{a_i,b_i,a_j,b_j\\}=\\
 
 这里所说的加工时间是指：从开始加工第一个产品到最后所有的产品都已在 A，B 两车间加工完毕的时间。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <algorithm>
@@ -654,8 +640,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 贪心反悔
 
@@ -683,9 +668,7 @@ int main()
 
 此时此刻此景，问君心生何情？
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <vector>
@@ -746,8 +729,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 问君
 

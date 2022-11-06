@@ -62,9 +62,7 @@ $$
 
 代码如下。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -119,8 +117,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## T 有依赖的背包问题
 
@@ -156,9 +153,7 @@ int main()
 
 代码如下，以下代码在由子问题推导的时候采取了 0/1 背包的**滚动数组**空间压缩技巧。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cstring>
@@ -214,8 +209,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 换根 DP
 
@@ -270,9 +264,7 @@ int main()
 
 总之，第 1 次 DFS 进行 DP 并明确父子关系，第 2 次 DFS 进行计算统计。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cstring>
@@ -352,8 +344,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 总结
 

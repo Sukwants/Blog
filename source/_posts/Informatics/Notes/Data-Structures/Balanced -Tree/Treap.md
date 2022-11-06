@@ -31,9 +31,7 @@ Treap 有两种，旋转 Treap 和无旋 Treap。
 
 通过二叉查找树的插入方式插入元素过后，不断比较新增元素与其父结点的第二元大小关系，并通过旋转调整二者位置。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 void insert(int x)
 {
@@ -46,16 +44,13 @@ void insert(int x)
     pushup(fa[idx]);
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 删除
 
 比较结点的两个子结点，判断应该哪一个来作父结点，将当前节点转下去，直到转到没有儿子的时候，直接删除。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 void erase(int x)
 {
@@ -67,8 +62,7 @@ void erase(int x)
     pushup(fa[idx]);
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 纠缠的分合
 
@@ -80,9 +74,7 @@ void erase(int x)
 
 将 Treap 分裂为 $<x$ 和 $\geq x$ 的两棵 Treap。具体地，我们判断当前根应该属于划分到哪一棵子树内，如果应该划分到 $<x$ 的子树内，则其左子树一定划分到 $<x$ 的子树内，此时我们递归分裂右子树，将根节点的右儿子设为右子树分裂出来的 $<x$ 的部分。反之亦然。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 pair<int, int> split(int rt, int x) // Split the Treap into two parts: <x >=x
 {
@@ -103,8 +95,7 @@ pair<int, int> split(int rt, int x) // Split the Treap into two parts: <x >=x
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 合并
 
@@ -112,9 +103,7 @@ pair<int, int> split(int rt, int x) // Split the Treap into two parts: <x >=x
 
 比较待合并的两棵 Treap 的根结点，判断应该谁来作父结点，假如第一元较小的 Treap 的根节点 $x$ 作父亲，则 $x$ 的左儿子不变，右儿子设为原右儿子与另一棵 Treap 递归合并的结果。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 int merge(int x, int y)
 {
@@ -133,16 +122,13 @@ int merge(int x, int y)
     }
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 插入
 
 按 $x$ 分裂 Treap，将新增元素与其中一棵合并，再合并这两棵 Treap。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 void insert(int x)
 {
@@ -151,16 +137,13 @@ void insert(int x)
     root = merge(merge(res.first, idx), res.second); 
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 删除
 
 两次分裂，分裂出三棵 Treap（$<x,=x,>x$），合并 $=x$ Treap 的两棵子树代替原 Treap，即删除了一个 $x$，再合并这三棵 Treap。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 void erase(int x)
 {
@@ -169,16 +152,13 @@ void erase(int x)
     root = merge(res.first, merge(merge(ch[rres.first][0], ch[rres.first][1]), rres.second)); 
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ### 查询指定树的排名
 
 分裂 Treap，查询 $<x$ 的 Treap 的大小。
 
-<details class="note" open>
-  <summary>参考代码</summary>
-
+{% contentbox type:note title:参考代码 open %}
 ```cpp
 int rank(int x)
 {
@@ -188,16 +168,13 @@ int rank(int x)
     return ans;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 文艺的书卷
 
 旋转 Treap 不能实现区间操作，但是无旋 Treap 可以。我们按排名分裂出需要区间修改的区间，打上 Lazy Tag。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <utility>
@@ -300,8 +277,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 花香的肆放
 

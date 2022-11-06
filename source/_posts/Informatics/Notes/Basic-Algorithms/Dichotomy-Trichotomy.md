@@ -86,9 +86,7 @@ $$
 
 这里我们额外注意一下，为了避免 $l+1=r$ 时 $\mathit{mid}=l$ 又要将 $l$ 赋为 $\mathit{mid}$ 的情况出现，我们在定义 $\mathit{mid}$ 的时候用的是 $\left\lceil\frac{l+r}{2}\right\rceil$。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <algorithm>
@@ -116,8 +114,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 #### T Best Cow Fences
 
@@ -133,9 +130,7 @@ int main()
 
 判断过程，我们扫描一遍数组，存储前缀和，对于 $i\geq L$，我们找到下标在 $[0,i-L]$ 之间的最大值，也就是在 $i$ 移动过程中不断用 $[1,i-L]$ 的前缀和去更新最大值，到时候直接取出来即可。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -198,8 +193,7 @@ int main()
     return 0;
 }
 ```
-
-<details>
+{% endcontentbox %}
 
 其实，$\mathit{eps}$ 还是要开小一点比较保险。
 
@@ -237,9 +231,7 @@ int main()
 
 于是就是一个单峰函数。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -315,8 +307,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 废题
 
@@ -347,9 +338,7 @@ int main()
 
 在考虑了 $x\in[\frac{D(H-h)}{H},D]$ 之后，再考察双勾函数的单调性解题。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -379,8 +368,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 结语
 

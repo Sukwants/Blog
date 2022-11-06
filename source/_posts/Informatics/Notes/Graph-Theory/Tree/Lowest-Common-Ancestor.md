@@ -75,9 +75,7 @@ $$
 
 代码。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <algorithm>
@@ -161,8 +159,7 @@ int main()
     return 0;
 } 
 ```
-
-</details>
+{% endcontentbox %}
 
 ## Tarjan 算法
 
@@ -180,9 +177,7 @@ int main()
 
 还需注意的是，洛谷上板子题的测试点 #11 包含 $a$ 与 $b$ 相同的询问，因此需要加一个特判。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <algorithm>
@@ -263,8 +258,7 @@ int main()
     return 0;
 } 
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 转化为欧拉序列上的 RMQ 问题
 

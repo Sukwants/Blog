@@ -86,9 +86,7 @@ $$
 
 然后考虑前导 0，当我们的上界有 $len$ 位时，要统计有 $k$ 个前导 0 的情况，那么有 $k$ 个前导 0 的数有 $10^{len-k}$ 个，于是就有 $k \times 10^{len-k}$ 个前导 0 被错误地统计，从 $0$ 的答案中删去即可。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -136,8 +134,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## T windy 数
 
@@ -164,9 +161,7 @@ $$f_{i,j} = \sum_{k \in [0,9] \land |j-k|} f_{i-1,k}$$
 
 但还需注意，因为只含 $1$ 个前导 $0$ 是能被判断为 windy 数的，因此这一部分被重复统计，最后计算的时候减去即可。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cmath>
@@ -228,8 +223,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## 统计答案
 

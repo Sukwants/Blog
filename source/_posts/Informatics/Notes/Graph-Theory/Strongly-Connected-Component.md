@@ -64,9 +64,7 @@ date: 2022-10-14 22:19:38
 
 求强连通分量，并输出每个强连通分量。
 
-<details class="note">
-  <summary>参考代码</summary>
-
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 
@@ -138,8 +136,7 @@ int main()
     return 0;
 }
 ```
-
-</details>
+{% endcontentbox %}
 
 ## Kosaraju 算法
 
