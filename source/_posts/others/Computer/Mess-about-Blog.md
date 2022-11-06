@@ -5,19 +5,21 @@ categories:
   - others
   - Computer
 date: 2022-02-11 13:14:21
-updated: 2022-10-17 00:20:19
+updated: 2022-11-07 00:19:19
 ---
 
 
 创造吧，向着未知世界！
 
+（Update.2022-11-07）又写了一个新插件呀！
+
 <!--more-->
 
 ## 依稀记得，来时的路
 
-2022/10/16 伪造 Google 翻译。
+2022/11/07 编写插件 hexo-content-blocks。
 
-2022/08/05 首次编写插件并发布到 npm 上。
+2022/08/05 编写插件 hexo-related-posts-bysk。
 
 2022/04/23 首次修改模板文件。
 
@@ -27,9 +29,17 @@ updated: 2022-10-17 00:20:19
 
 ## 插件
 
+### [hexo-content-blocks](https://github.com/Sukwants/hexo-content-blocks)
+
+一个为 Hexo 设计的插件，可以使用带有样式的内容块，并且支持自定义哦。
+
+2022-11-06 发布 v1.0.0，灵感源自 [OI Wiki](https://oi-wiki.org)。
+
 ### [hexo-related-posts-bysk](https://github.com/Sukwants/hexo-related-posts-bysk)
 
 一个为 Hexo 设计的插件，用来生成相关文章，作者是 Sukwants。
+
+2022-11-06 发布 v1.2.0，修改了一些细节。
 
 2022-08-10 发布 v1.1.0，增加了指定标签和分类不参与文章相关性计算的功能。如要从 v1.0.0 更新，需修改 `themes/next/layout/_partials/post/post-related.njk` 和 `themes/next/_config.yml`。
 
