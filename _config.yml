@@ -152,3 +152,14 @@ template_txt: ./sitemap_template.txt
 rel: false
 tags: true
 categories: true
+
+# Content blocks
+content_blocks:
+  enable: true
+  types:
+    note: 448aff || \f304
+    success: 00c853 || \f00c
+    failure: ff5252 || \f00d
+    warning: ff9100 || \f071
+    info: 00b8d4 || \f05a
+    question: 64dd17 || \f059
