@@ -15,7 +15,7 @@ comments: false
 
 <div class="card"><a href="https://song-gan.github.io" target="_blank"><div class="thumb" style="background: url(https://song-gan.github.io/images/avatar.png);"></div></a><div class="card-header"><div><a href="https://song-gan.github.io" target="_blank">凌寒</a></div></div></div>
 
-<div class="card"><a href="https://violeteternal.github.io/Eternity/" target="_blank"><div class="thumb" style="background: url(https://lucareternity.github.io/images/avatar.jpg);"></div></a><div class="card-header"><div><a href="https://violeteternal.github.io/Eternity/" target="_blank">Eternal</a></div></div></div>
+<div class="card"><a href="https://lucareternity.github.io" target="_blank"><div class="thumb" style="background: url(https://lucareternity.github.io/images/avatar.jpg);"></div></a><div class="card-header"><div><a href="https://lucareternity.github.io" target="_blank">Eternal</a></div></div></div>
 
 <div class="card"><a href="https://kevinlive.github.io" target="_blank"><div class="thumb" style="background: url(https://kevinlive.github.io/images/avatar.gif);"></div></a><div class="card-header"><div><a href="https://kevinlive.github.io" target="_blank">Live</a></div></div></div>
 
