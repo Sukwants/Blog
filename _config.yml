@@ -154,12 +154,15 @@ tags: true
 categories: true
 
 # Content blocks
+## Docs: https://github.com/Sukwants/hexo-content-blocks
 content_blocks:
   enable: true
+  open_button: fa fa-chevron-down
   types:
-    note: 448aff || \f304
-    success: 00c853 || \f00c
-    failure: ff5252 || \f00d
-    warning: ff9100 || \f071
-    info: 00b8d4 || \f05a
-    question: 64dd17 || \f059
+    note: 448aff || fa fa-pen
+    success: 00c853 || fa fa-check
+    failure: ff5252 || fa fa-xmark
+    warning: ff9100 || fa fa-triangle-exclamation
+    info: 00b8d4 || fa fa-circle-info
+    question: 64dd17 || fa fa-circle-question
+    example: 651fff || fa fa-list

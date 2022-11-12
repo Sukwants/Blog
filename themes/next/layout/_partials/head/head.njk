@@ -67,5 +67,5 @@
 {{- next_js('config.js') }}
 
 {%- if config.content_blocks.enable %}
-  <style>{{ content_blocks_css() }}</style>
+  <style type="text/css">{{ content_blocks_css() }}</style>
 {%- endif %}
