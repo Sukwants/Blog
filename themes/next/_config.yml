@@ -103,9 +103,9 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
-  journey: /journey/ || fas fa-road
-  friends: /friends/ || fas fa-address-book
-  translate: /translate/ || fa fa-language
+  journey: /journey/ || fa fa-road
+  friends: /friends/ || fa fa-address-book
+  mirrors: /mirrors/ || fa fa-copy
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
