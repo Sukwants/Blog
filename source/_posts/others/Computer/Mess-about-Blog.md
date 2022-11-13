@@ -9,9 +9,7 @@ updated: 2022-11-12 21:01:22
 ---
 
 
-创造吧，向着未知世界！
-
-Update: 2022-11-07 又写了一个新插件呀！
+创造吧，向着未知世界
 
 <!--more-->
 
@@ -32,6 +30,8 @@ Update: 2022-11-07 又写了一个新插件呀！
 ### [hexo-content-blocks](https://github.com/Sukwants/hexo-content-blocks)
 
 一个为 Hexo 设计的插件，可以使用带有样式的内容块，并且支持自定义哦。
+
+2022-11-13 发布 v1.1.1，强制渲染内容块，解决了部分情况下代码错乱的情况。
 
 2022-11-12 发布 v1.1.0，收到友人 [@Eternal](https://lucareternity.github.io/) 的反馈，将图标支持更改为 `<i>` 标签，以适应对旧版本 Font Awesome 的支持。
 

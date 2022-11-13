@@ -166,3 +166,4 @@ content_blocks:
     info: 00b8d4 || fa fa-circle-info
     question: 64dd17 || fa fa-circle-question
     example: 651fff || fa fa-list
+    quote: 9e9e9e || fa fa-quote-right
