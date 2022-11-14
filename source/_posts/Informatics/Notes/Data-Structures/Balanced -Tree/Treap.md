@@ -1,7 +1,8 @@
 ---
 title: 平衡树 - Treap
 tags:
-  - '[I] 平衡树'
+  - '[I] 二叉查找树 / 平衡树'
+  - '[I] 堆'
 categories:
   - Informatics
   - Notes
