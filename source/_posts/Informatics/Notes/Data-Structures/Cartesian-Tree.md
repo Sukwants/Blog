@@ -134,7 +134,7 @@ int main()
 
 做一个树形 DP 完事。
 
-{% contentbox type:note title:参考代码 %}
+{% contentbox type:success title:参考代码 %}
 ```cpp
 #include <cstdio>
 #include <cstring>
