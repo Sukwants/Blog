@@ -678,6 +678,23 @@ utterances:
 # For more information: https://posativ.org/isso/
 isso: # <data_isso>
 
+# Giscus (Manually additional)
+# See: https://giscus.app/zh-CN
+giscus:
+  enable: true
+  repo: Sukwants.github.io
+  data_repo: Sukwants/Sukwants.github.io
+  data_repo_id: R_kgDOG5K_WA
+  data_category: Announcements
+  data_category_id: DIC_kwDOG5K_WM4CS9Dr
+  data_mapping: pathname
+  data_strict: 0
+  data_reactions_enabled: 1
+  data_emit_metadata: 0
+  data_input_position: top
+  data_theme: light
+  data_lang: zh-CN
+  crossorigin: anonymous
 
 # ---------------------------------------------------------------
 # Post Widgets & Content Sharing Services
