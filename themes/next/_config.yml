@@ -682,11 +682,10 @@ isso: # <data_isso>
 # See: https://giscus.app/zh-CN
 giscus:
   enable: true
-  repo: Sukwants.github.io
   data_repo: Sukwants/Sukwants.github.io
   data_repo_id: R_kgDOG5K_WA
   data_category: Ideas
-  data_category_id: DIC_kwDOG5K_WM4CS9Dr
+  data_category_id: DIC_kwDOG5K_WM4CS9Du
   data_mapping: pathname
   data_strict: 0
   data_reactions_enabled: 1
