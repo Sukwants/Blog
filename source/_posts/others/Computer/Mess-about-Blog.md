@@ -5,7 +5,7 @@ categories:
   - others
   - Computer
 date: 2022-02-11 13:14:21
-updated: 2022-11-12 21:01:22
+updated: 2022-12-07 23:04:22
 ---
 
 
@@ -15,9 +15,9 @@ updated: 2022-11-12 21:01:22
 
 ## 依稀记得，来时的路
 
-2022/11/07 编写插件 hexo-content-blocks。
+2022/11/07 首次完全独立编写插件：hexo-content-blocks。
 
-2022/08/05 编写插件 hexo-related-posts-bysk。
+2022/08/05 首次编写插件：hexo-related-posts-bysk。
 
 2022/04/23 首次修改模板文件。
 
@@ -25,9 +25,71 @@ updated: 2022-11-12 21:01:22
 
 2022/02/11 首次搭建 Hexo + NexT 博客网站。
 
-## 插件
+## Giscus
 
-### [hexo-content-blocks](https://github.com/Sukwants/hexo-content-blocks)
+/themes/next/\_config.yml
+
+在 Comments Settings 部分，追加了
+
+（通过 [giscus 的官方网页](https://giscus.app/zh-CN) 生成以下配置）
+
+```yml
+# Giscus (Manually additional)
+# See: https://giscus.app/zh-CN
+giscus:
+  enable: true
+  data_repo: Sukwants/Sukwants.github.io
+  data_repo_id: R_kgDOG5K_WA
+  data_category: Ideas
+  data_category_id: DIC_kwDOG5K_WM4CS9Du
+  data_mapping: pathname
+  data_strict: 0
+  data_reactions_enabled: 1
+  data_emit_metadata: 0
+  data_input_position: top
+  data_theme: light
+  data_lang: zh-CN
+  crossorigin: anonymous
+```
+
+/themes/next/layout/\_partials/comments.njk
+
+在第 2 行至第 19 行，加入了
+
+```njk
+  {%- if theme.giscus.enable %}
+    <div class="comments giscus"></div>
+    <script src="https://giscus.app/client.js"
+            data-repo="{{ theme.giscus.data_repo }}"
+            data-repo-id="{{ theme.giscus.data_repo_id }}"
+            data-category="{{ theme.giscus.data_category }}"
+            data-category-id="{{ theme.giscus.data_category_id }}"
+            data-mapping="{{ theme.giscus.data_mapping }}"
+            data-strict="{{ theme.giscus.data_strict }}"
+            data-reactions-enabled="{{ theme.giscus.data_reactions_enable }}"
+            data-emit-metadata="{{ theme.giscus.data_emit_metadata }}"
+            data-input-position="{{ theme.giscus.data_input_position }}"
+            data-theme="{{ theme.giscus.data_theme }}"
+            data-lang="{{ theme.giscus.data_lang }}"
+            crossorigin="{{ theme.giscus.crossorigin }}"
+            async>
+    </script>
+    <style>.giscus{width:initial}</style>
+```
+
+将第 20 行（原第 2 行），由
+
+```njk
+  {%- if theme.injects.comment.length == 1 %}
+```
+
+改为
+
+```njk
+  {%- elif theme.injects.comment.length == 1 %}
+```
+
+## [hexo-content-blocks](https://github.com/Sukwants/hexo-content-blocks)
 
 一个为 Hexo 设计的插件，可以使用带有样式的内容块，并且支持自定义哦。
 
@@ -37,7 +99,7 @@ updated: 2022-11-12 21:01:22
 
 2022-11-06 发布 v1.0.0，灵感源自 [OI Wiki](https://oi-wiki.org)。
 
-### [hexo-related-posts-bysk](https://github.com/Sukwants/hexo-related-posts-bysk)
+## [hexo-related-posts-bysk](https://github.com/Sukwants/hexo-related-posts-bysk)
 
 一个为 Hexo 设计的插件，用来生成相关文章，作者是 Sukwants。
 
@@ -47,12 +109,11 @@ updated: 2022-11-12 21:01:22
 
 2022-08-05 发布 v1.0.0，基于各种 Hexo 相关文章插件并再加修改制作，通过标签和分类生成相关文章，支持设置标题和最大显示数目。
 
-## 站点配置文件
+## 单词统计
 
 /\_config.yml
 
 ```yml
-# 设置博客单词统计
 symbols_count_time:
   # 文章字数统计
   symbols: true
@@ -65,8 +126,12 @@ symbols_count_time:
   exclude_codeblock: false
 ```
 
+## 文章加密
+
+/\_config.yml
+
 ```yml
-# Security 文章加密，需要插件 hexo-blog-encrypt
+# Security
 encrypt: # hexo-blog-encrypt
   #abstract: 有东西被加密了, 请输入密码查看. # 设置文章摘要显示内容
   #message: 您好, 这里需要密码. # 设置密码框提示信息
@@ -78,56 +143,27 @@ encrypt: # hexo-blog-encrypt
   #wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容. # 设置错误哈希提示
 ```
 
+## 音乐播放器
+
+/\_config.yml
+
 ```yml
-# APlayer 音乐播放器
+# Aplayer
 aplayer:
   meting: true # 开启 Meting 功能
 ```
 
-## 主题配置文件
+## 站点运行时间
 
 /themes/next/\_config.yml
 
 ```yml
 footer:
-  # Website running time 在页面脚部显示的本站已安全运行……天……小时……分钟……秒
+  # Website running time
   running:
     enable: true # 开启功能
     set_up_time: 02/11/2022 13:14:21 # 设置建站时间
 ```
-
-```yml
-# Read more button 主页文章的「阅读更多」按钮
-read_more_btn:
-  enable: true # If true, the read more button will be displayed in excerpt section. 设置是否加入该按钮
-  scroll_to_more: false # 默认为 true ，如果为 true 则点击按钮会滑到文章 #more 标签以下。
-```
-
-```yml
-# List related posts, written by Sukwants 相关文章，使用插件 hexo-related-posts-bysk
-related_posts:
-  enable: true # 开启功能
-  title: # 设置标题，默认为「相关文章」
-  display_in_home: false # 决定是否在主页开启此功能
-  max_count: 5 # 最大文章数
-  order_by: 'date' # 排序依据
-  #order: 'positive' # 升序
-  order: 'negative'  # 降序
-  exclude: # 不计入文章相关性计算的标签或分类
-    tags:
-      #- 'some tags'
-    categories:
-      - 'others'
-```
-
-```yml
-post_meta:
-  sticky: # 决定置顶标签是否显示在文章元标签处
-    enable: true # 默认为 true
-    color: "#7d26cd" # 设置置顶标签的颜色
-```
-
-## 语言包文件
 
 /themes/next/languages/zh-CN.yml
 
@@ -140,91 +176,7 @@ footer:
   seconds: 秒
 ```
 
-## 模板文件
-
-### /themes/next/layout/\_macro/post.njk
-
-在第 $1$ 行，加入了（已删除）
-
-```njk
-{%- if not (is_index and post.unshow == true) %}
-```
-
-在第 $155$ 行，加入了（已删除）
-
-```njk
-{%- endif %}
-```
-
-第 $32$ 行与第 $33$ 行之间、第 $36$ 行与第 $37$ 行之间，删除了 $2$ 处
-
-```njk
-{%- if post.sticky > 0 %}
-  <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
-    <i class="fa fa-thumbtack"></i>
-  </span>
-{%- endif %}
-```
-
-### /themes/next/layout/\_partials/post/post-meta.njk
-
-在第 $5$ 行至第 $14$ 行，加入了
-
-```njk
-{%- if theme.post_meta.sticky.enable and ( post.sticky > 0 ) %}
-  <span class="post meta-item">
-    <font color="{{ theme.post_meta.sticky.color }}">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-thumbtack"></i>
-      </span>
-      <span class="post-meta-item-text">{{ __('post.sticky') }}</span>
-    </font>
-  </span>
-{%- endif %}
-```
-
-### /themes/next/layout/\_partials/post/post-related.njk
-
-在第 $1$ 行至第 $9$ 行，将
-
-```njk
-{%- if page.related_posts and page.related_posts.length > 0 %}
-  <div class="popular-posts-header">{{ theme.related_posts.title or __('post.related_posts') }}</div>
-  <ul class="popular-posts">
-  {%- for path in page.related_posts %}
-    {%- set popular_post = site.posts.findOne({ path: path }) %}
-    <li class="popular-posts-item">
-      {%- if popular_post.date %}
-        <div class="popular-posts-date">{{ date(popular_post.date) }}</div>
-      {%- endif %}
-      {%- if popular_post.img %}
-        <div class="popular-posts-img"><img src="{{ popular_post.img }}" alt="{{ popular_post.title }}"></div>
-      {%- endif %}
-      <div class="popular-posts-title"><a href="{{ popular_post.path }}" rel="bookmark">{{ popular_post.title }}</a></div>
-      {%- if popular_post.excerpt and popular_post.excerpt != '' %}
-        <div class="popular-posts-excerpt"><p>{{ popular_post.excerpt }}</p></div>
-      {%- endif %}
-    </li>
-  {%- endfor %}
-  </ul>
-{%- endif %}
-```
-
-替换为了
-
-```njk
-{% set related_post =  related_posts_bysk(post, {maxCount: theme.related_posts.max_count, orderBy: theme.related_posts.order_by, order: theme.related_posts.order, excludeTags: theme.related_posts.exclude.tags, excludeCategories: theme.related_posts.exclude.categories}) %}
-{% if related_post.length > 0 %}
-  <div class="popular-posts-header">{{ theme.related_posts.title or __('post.related_posts') }}</div>
-  <ul class="related-posts">
-  {% for rl_post in related_post %}
-      <li class="related-posts-item"><a href="{{ url_for(rl_post.path) }}">{{ rl_post.title }}</a></li>
-  {% endfor %}
-  </ul>
-{% endif %}
-```
-
-### /themes/next/layout/\_partials/footer.njk
+/themes/next/layout/\_partials/footer.njk
 
 在第 $92$ 行至第 $113$ 行，加入了
 
@@ -298,5 +250,56 @@ footer:
       {{ __('post.read_more') }} &raquo;
     </a>
   </div>
+{%- endif %}
+```
+
+## 「阅读更多」按钮
+
+/themes/next/\_config.yml
+
+```yml
+# Read more button
+read_more_btn:
+  enable: true # If true, the read more button will be displayed in excerpt section. 设置是否加入该按钮
+  scroll_to_more: false # 默认为 true ，如果为 true 则点击按钮会滑到文章 #more 标签以下。
+```
+
+## 置顶标签
+
+/themes/next/\_config.yml
+
+```yml
+post_meta:
+  sticky: # 决定置顶标签是否显示在文章元标签处
+    enable: true # 默认为 true
+    color: "#7d26cd" # 设置置顶标签的颜色
+```
+
+/themes/next/layout/\_macro/post.njk
+
+第 $32$ 行与第 $33$ 行之间、第 $36$ 行与第 $37$ 行之间，删除了 $2$ 处
+
+```njk
+{%- if post.sticky > 0 %}
+  <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
+    <i class="fa fa-thumbtack"></i>
+  </span>
+{%- endif %}
+```
+
+/themes/next/layout/\_partials/post/post-meta.njk
+
+在第 $5$ 行至第 $14$ 行，加入了
+
+```njk
+{%- if theme.post_meta.sticky.enable and ( post.sticky > 0 ) %}
+  <span class="post meta-item">
+    <font color="{{ theme.post_meta.sticky.color }}">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-thumbtack"></i>
+      </span>
+      <span class="post-meta-item-text">{{ __('post.sticky') }}</span>
+    </font>
+  </span>
 {%- endif %}
 ```
