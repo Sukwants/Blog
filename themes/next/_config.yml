@@ -326,8 +326,8 @@ related_posts:
 # Easily browse and edit blog source code online.
 post_edit:
   enable: true
-  #url: https://github.com/Sukwants/Blog/blob/main/source/ # Link for view source
-  url: https://github.com/Sukwants/Blog/edit/main/source/ # Link for fork & edit
+  url: https://github.com/Sukwants/Blog/blob/main/source/ # Link for view source
+  #url: https://github.com/Sukwants/Blog/edit/main/source/ # Link for fork & edit
 
 # Show previous post and next post in post footer if exists
 # Available values: left | right | false
