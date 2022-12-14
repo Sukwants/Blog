@@ -153,6 +153,29 @@ aplayer:
   meting: true # 开启 Meting 功能
 ```
 
+## Footer 字体颜色
+
+/themes/next/\_config.yml
+
+```yml
+footer:
+  color: "#ffffff"
+```
+
+/themes/next/layout/\_layout.njk
+
+在第 36 行，将
+
+```njk
+  <footer class="footer">
+```
+
+改为了
+
+```njk
+  <footer class="footer" style="color: {{ theme.footer.color }}">
+```
+
 ## 站点运行时间
 
 /themes/next/\_config.yml
@@ -178,7 +201,7 @@ footer:
 
 /themes/next/layout/\_partials/footer.njk
 
-在第 $92$ 行至第 $113$ 行，加入了
+在第 $90$ 行至第 $111$ 行，加入了
 
 ```njk
 {%- if theme.footer.running.enable %}
@@ -203,6 +226,17 @@ footer:
     </script>
   </div>
 {%- endif %}
+```
+
+## 「阅读更多」按钮
+
+/themes/next/\_config.yml
+
+```yml
+# Read more button
+read_more_btn:
+  enable: true # If true, the read more button will be displayed in excerpt section. 设置是否加入该按钮
+  scroll_to_more: false # 默认为 true ，如果为 true 则点击按钮会滑到文章 #more 标签以下。
 ```
 
 在第 $62$ 行至第 $68$ 行，将
@@ -251,17 +285,6 @@ footer:
     </a>
   </div>
 {%- endif %}
-```
-
-## 「阅读更多」按钮
-
-/themes/next/\_config.yml
-
-```yml
-# Read more button
-read_more_btn:
-  enable: true # If true, the read more button will be displayed in excerpt section. 设置是否加入该按钮
-  scroll_to_more: false # 默认为 true ，如果为 true 则点击按钮会滑到文章 #more 标签以下。
 ```
 
 ## 置顶标签

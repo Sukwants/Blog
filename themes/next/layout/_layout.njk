@@ -33,7 +33,7 @@
     </div>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" style="color: {{ theme.footer.color }}">
     <div class="footer-inner">
       {%- include '_partials/languages.njk' -%}
       {{ partial('_partials/footer.njk', {}, {cache: theme.cache.enable}) }}
