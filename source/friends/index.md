@@ -22,7 +22,7 @@ comments: false
 
 <div class="card"><a href="https://sukwants.github.io" target="_blank"><div class="thumb" style="background: url(https://sukwants.github.io/images/avatar.gif);"></div></a><div class="card-header"><div><a href="https://sukwants.github.io" target="_blank">Sukwants</a></div></div></div>
 
-<div class="card"><a href="https://2745518585.github.io" target="_blank"><div class="thumb" style="background: url(https://2745518585.github.io/images/avatar.png);"></div></a><div class="card-header"><div><a href="https://2745518585.github.io" target="_blank">赵悦岑</a></div></div></div>
+<div class="card"><a href="https://2745518585.github.io" target="_blank"><div class="thumb" style="background: url(https://2745518585.github.io/images/avatar.gif);"></div></a><div class="card-header"><div><a href="https://2745518585.github.io" target="_blank">赵悦岑</a></div></div></div>
 
 <div class="card"><a href="https://rusunoi.github.io" target="_blank"><div class="thumb" style="background: url(https://rusunoi.github.io/images/avatar.jpg);"></div></a><div class="card-header"><div><a href="https://rusunoi.github.io" target="_blank">Rusun</a></div></div></div>
 
