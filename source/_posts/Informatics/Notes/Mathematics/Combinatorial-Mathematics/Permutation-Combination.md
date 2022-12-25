@@ -1,8 +1,8 @@
 ---
 title: 数学 - 组合数学 - 排列组合
 tags:
-  - '[I] 数学'
-  - '[I] 组合数学'
+  - '数学'
+  - '组合数学'
 categories:
   - Informatics
   - Notes

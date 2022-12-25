@@ -1,9 +1,9 @@
 ---
 title: 图论 - 树 - 树上启发式合并
 tags:
-  - '[I] 图论'
-  - '[I] 树'
-  - '[I] 启发式合并'
+  - '图论'
+  - '树'
+  - '启发式合并'
 categories:
   - Informatics
   - Notes

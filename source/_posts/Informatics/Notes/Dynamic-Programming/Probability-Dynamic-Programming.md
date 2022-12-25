@@ -1,8 +1,8 @@
 ---
 title: 动态规划 - 概率动态规划
 tags:
-  - '[I] 动态规划'
-  - '[I] 概率 & 期望'
+  - '动态规划'
+  - '概率 & 期望'
 categories:
   - Informatics
   - Notes

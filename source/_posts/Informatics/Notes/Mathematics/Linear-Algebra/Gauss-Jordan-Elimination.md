@@ -1,8 +1,8 @@
 ---
 title: 数学 - 线性代数 - 高斯消元法
 tags:
-  - '[I] 数学'
-  - '[I] 线性代数'
+  - '数学'
+  - '线性代数'
 categories:
   - Informatics
   - Notes

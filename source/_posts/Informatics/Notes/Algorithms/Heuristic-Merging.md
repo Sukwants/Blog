@@ -1,7 +1,7 @@
 ---
 title: 启发式合并
 tags:
-  - '[I] 启发式合并'
+  - '启发式合并'
 categories:
   - Informatics
   - Notes

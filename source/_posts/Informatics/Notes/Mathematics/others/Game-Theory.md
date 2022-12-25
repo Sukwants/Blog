@@ -1,7 +1,7 @@
 ---
 title: 数学 - 博弈论
 tags:
-  - '[I] 数学'
+  - '数学'
 categories:
   - Informatics
   - Notes

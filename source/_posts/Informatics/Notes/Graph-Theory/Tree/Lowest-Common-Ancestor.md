@@ -1,8 +1,8 @@
 ---
 title: 图论 - 树 - 最近公共祖先
 tags:
-  - '[I] 图论'
-  - '[I] 树'
+  - '图论'
+  - '树'
 categories:
   - Informatics
   - Notes

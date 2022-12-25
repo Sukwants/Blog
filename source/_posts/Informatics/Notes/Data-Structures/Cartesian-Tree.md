@@ -1,8 +1,8 @@
 ---
 title: 笛卡尔树
 tags:
-  - '[I] 二叉查找树 / 平衡树'
-  - '[I] 堆'
+  - '二叉查找树 / 平衡树'
+  - '堆'
 categories:
   - Informatics
   - Notes

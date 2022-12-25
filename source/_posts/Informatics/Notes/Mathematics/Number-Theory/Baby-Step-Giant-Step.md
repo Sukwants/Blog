@@ -1,8 +1,8 @@
 ---
 title: Baby Step, Giant Step 算法
 tags:
-  - '[I] 数学'
-  - '[I] 数论'
+  - '数学'
+  - '数论'
 categories:
   - Informatics
   - Notes

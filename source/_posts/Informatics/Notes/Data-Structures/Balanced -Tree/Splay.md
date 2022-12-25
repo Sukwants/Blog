@@ -1,7 +1,7 @@
 ---
 title: 平衡树 - Splay
 tags:
-  - '[I] 二叉查找树 / 平衡树'
+  - '二叉查找树 / 平衡树'
 categories:
   - Informatics
   - Notes

@@ -1,8 +1,8 @@
 ---
 title: 字符串 - AC 自动机
 tags:
-  - '[I] 字符串'
-  - '[I] 自动机'
+  - '字符串'
+  - '自动机'
 categories:
   - Informatics
   - Notes

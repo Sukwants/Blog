@@ -1,8 +1,8 @@
 ---
 title: 动态规划 - 动态动态规划
 tags:
-  - '[I] 动态规划'
-  - '[I] 线性代数'
+  - '动态规划'
+  - '线性代数'
 categories:
   - Informatics
   - Notes

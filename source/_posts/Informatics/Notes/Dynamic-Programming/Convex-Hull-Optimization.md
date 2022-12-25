@@ -1,7 +1,7 @@
 ---
 title: 动态规划 - 斜率优化
 tags:
-  - '[I] 动态规划'
+  - '动态规划'
 categories:
   - Informatics
   - Notes

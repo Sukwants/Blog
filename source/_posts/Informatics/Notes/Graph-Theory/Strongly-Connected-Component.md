@@ -1,7 +1,7 @@
 ---
 title: 图论 - 强连通分量
 tags:
-  - '[I] 图论'
+  - '图论'
 categories:
   - Informatics
   - Notes

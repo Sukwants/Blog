@@ -1,7 +1,7 @@
 ---
 title: 贪心法
 tags:
-  - '[I] 贪心法'
+  - '贪心法'
 categories:
   - Informatics
   - Notes

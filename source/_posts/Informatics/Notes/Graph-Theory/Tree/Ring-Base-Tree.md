@@ -1,8 +1,8 @@
 ---
 title: 图论 - 树 - 基环树
 tags:
-  - '[I] 图论'
-  - '[I] 树'
+  - '图论'
+  - '树'
 categories:
   - Informatics
   - Notes

@@ -1,8 +1,8 @@
 ---
 title: 数学 - 数论 - 因数
 tags:
-  - '[I] 数学'
-  - '[I] 数论'
+  - '数学'
+  - '数论'
 categories:
   - Informatics
   - Notes

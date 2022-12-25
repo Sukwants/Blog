@@ -1,7 +1,7 @@
 ---
 title: 图论 - 割点与割边
 tags:
-  - '[I] 图论'
+  - '图论'
 categories:
   - Informatics
   - Notes

@@ -1,7 +1,7 @@
 ---
 title: 散列表
 tags:
-  - '[I] 哈希'
+  - '哈希'
 categories:
   - Informatics
   - Notes

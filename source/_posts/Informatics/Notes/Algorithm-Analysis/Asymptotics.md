@@ -1,7 +1,7 @@
 ---
 title: 算法分析 - 渐进式
 tags:
-  - '[I] 算法分析'
+  - '算法分析'
 categories:
   - Informatics
   - Notes
